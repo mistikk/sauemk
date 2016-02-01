@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<div ng-controller="Account.Login.Controller">
+    <input ng-model="username" />
+    <input ng-model="password" />
+    <button ng-click="login();">Login</button>
+    <label>Token: {{token}}</label>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/Angular/Account.Login.Controller.js"></script>
+}
+@section pageCss {
+    
+}

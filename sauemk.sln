@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sauemk", "sauemk\sauemk.csproj", "{05CD778B-544C-4DF2-B4B5-427A839EC334}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sauemk.service", "sauemk\sauemk.service.csproj", "{05CD778B-544C-4DF2-B4B5-427A839EC334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sauemk.web", "sauemk.web\sauemk.web.csproj", "{0988E1EA-BDD0-4210-B20D-5D1B214C959E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emk.web", "emk.web\emk.web.csproj", "{55D1104E-DFA3-46FC-806E-467C4751D1E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{05CD778B-544C-4DF2-B4B5-427A839EC334}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05CD778B-544C-4DF2-B4B5-427A839EC334}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05CD778B-544C-4DF2-B4B5-427A839EC334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0988E1EA-BDD0-4210-B20D-5D1B214C959E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0988E1EA-BDD0-4210-B20D-5D1B214C959E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0988E1EA-BDD0-4210-B20D-5D1B214C959E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0988E1EA-BDD0-4210-B20D-5D1B214C959E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D1104E-DFA3-46FC-806E-467C4751D1E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D1104E-DFA3-46FC-806E-467C4751D1E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D1104E-DFA3-46FC-806E-467C4751D1E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D1104E-DFA3-46FC-806E-467C4751D1E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
