@@ -3,25 +3,32 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
 <div ng-controller="Account.Login.Controller">
-    <input ng-model="regis.user" />
-    <input ng-model="regis.pass" />
-    <button ng-click="register();">Register</button>
-    <br />
-    <br />
-    <input ng-model="username" />
-    <input ng-model="password" />
-    <button ng-click="login();">Login</button>
-    <br />
-    <br />
-    <button ng-click="getValues();">Get Values</button>
-    <br />
-    <br />
-    <label>Token: {{token}}</label>
-    <br />
-    <br />
-    <label>Values: {{values}}</label>
+    <form role="form">
+        <div class="row">
+            <div class="col-md-4">
+                &nbsp;
+            </div>
+            <div class="col-md-4">
+                <h2 class="form-login-heading">Login</h2>
+                <input type="text" class="form-control" placeholder="Username" data-ng-model="loginData.userName" required autofocus>
+                <input type="password" class="form-control" placeholder="Password" data-ng-model="loginData.password" required>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" data-ng-model="loginData.useRefreshTokens"><strong> Use Refresh Tokens</strong>
+                    </label>
+                </div>
+                <button class="btn btn-md btn-info btn-block" type="submit" data-ng-click="login()" style="max-width:280px;">Login</button>
+                <div data-ng-if="message == ''" class="alert alert-danger">
+                    {{message}}
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                &nbsp;
+            </div>
+        </div>
+    </form>
 </div>
 
 @section Scripts {

@@ -8,8 +8,14 @@ namespace emk.web.Controllers
 {
     public class AccountController : Controller
     {
+        [Route("sa")]
         // GET: Account
         public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
         {
             return View();
         }

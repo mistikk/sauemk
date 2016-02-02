@@ -1,13 +1,20 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app', [
-        // Angular modules 
-        'ngRoute'
+    var app = angular.module('app', ['ngRoute', 'LocalStorageModule']);
 
-        // Custom modules 
+    var serviceBase = 'http://localhost:17522/';
 
-        // 3rd Party Modules
-        
-    ]);
+    app.constant('ngAuthSettings', {
+        apiServiceBaseUri: serviceBase,
+        clientId: 'ngAuthApp'
+    });
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptorService');
+    });
+
+    app.run(['authService', function (authService) {
+        authService.fillAuthData();
+    }]);
 })();

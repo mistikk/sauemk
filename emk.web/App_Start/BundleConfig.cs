@@ -27,7 +27,10 @@ namespace emk.web
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                      "~/Scripts/angular/app.js"));
+                      "~/Scripts/angular/app.js",
+                      "~/Scripts/angular/services/authInterceptorService.js",
+                      "~/Scripts/angular/services/authService.js",
+                      "~/Scripts/angular/services/tokensManagerService.js"));
         }
     }
 }

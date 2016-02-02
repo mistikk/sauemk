@@ -134,9 +134,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-local-storage.min.js" />
     <Content Include="Scripts\Angular\Account.Login.Controller.js" />
+    <Content Include="Scripts\Angular\Account.Register.Controller.js" />
     <Content Include="Scripts\Angular\app.js" />
     <Content Include="Scripts\Angular\controller.js" />
+    <Content Include="Scripts\Angular\services\authInterceptorService.js" />
+    <Content Include="Scripts\Angular\services\authService.js" />
+    <Content Include="Scripts\Angular\services\tokensManagerService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -166,6 +171,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
