@@ -11,7 +11,7 @@
 
         $scope.loginData = {
             userName: "",
-            password: "",
+            Password: "",
             useRefreshTokens: true
         };
 

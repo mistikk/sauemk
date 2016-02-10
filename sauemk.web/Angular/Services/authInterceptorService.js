@@ -22,9 +22,13 @@
             console.info("config", config);
             return config;
         }
+        var _response = function (sa) {
+            console.info("request", rejection);
+        }
 
         var _responseError = function (rejection) {
             console.log("1");
+            console.info("request", rejection);
             if (rejection.status === 403) {
                 console.log("2");
                 var authService = $injector.get('authService');

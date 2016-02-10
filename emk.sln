@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sauemk.web", "sauemk.web\sauemk.web.csproj", "{C47D90D0-EF18-4D33-8C2D-6CFA977B4E08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sauemk.service", "..\sauemk\sauemk\sauemk.service.csproj", "{05CD778B-544C-4DF2-B4B5-427A839EC334}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sauemk.service", "sauemk.service\sauemk.service.csproj", "{05CD778B-544C-4DF2-B4B5-427A839EC334}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

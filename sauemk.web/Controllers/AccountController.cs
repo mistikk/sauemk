@@ -10,12 +10,16 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using sauemk.web.Models;
 using sauemk.web.Attributes;
+using sauemk.web.Services;
+using Newtonsoft.Json.Linq;
+using sauemk.web.Core;
 
 namespace sauemk.web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        protected Response response = new Response();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -67,30 +71,23 @@ namespace sauemk.web.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        //[ValidateAntiForgeryToken]
+        public JsonResult Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return Json(response.ModelError());
             }
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+
+            RestService service = new RestService();
+            var sass = service.Get<Object>("api/values");
+            var result = service.login(model.userName, model.Password);
+            
+
+            return Json(service.login(model.userName, model.Password));
         }
 
         //

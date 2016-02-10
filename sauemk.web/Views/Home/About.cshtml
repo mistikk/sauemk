@@ -1,7 +1,15 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>{{title}}</h2>
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+<input ng-model="isim"/>
+<button ng-click="Cukuruk(isim);">tıklama</button>
+<br />
+{{message}}
+<br />
+<button ng-click="getNumber();">tıklama</button>
+<br />
+{{numbers}}

@@ -49,9 +49,9 @@ namespace sauemk.web.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "userName")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string userName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
