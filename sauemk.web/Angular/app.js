@@ -11,7 +11,7 @@
             templateUrl: "Account/Login"
         });
         $routeProvider.when("/register", {
-            controller: "",
+            controller: "Account.Register.Controller",
             templateUrl: "Account/Register"
         });
         $routeProvider.when("/about", {

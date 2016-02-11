@@ -38,9 +38,7 @@ namespace sauemk.web.Services
             return result.Data(response.Data);
         }
 
-
-
-        private Structure Execute<T>(RestRequest request) where T : new()
+        public Structure Execute<T>(RestRequest request) where T : new()
         {
             Response result = new Response();
             var response = client.Execute<T>(request);

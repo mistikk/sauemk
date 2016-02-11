@@ -192,6 +192,7 @@
   <ItemGroup>
     <Content Include="Angular\Controllers\Account.Login.Controller.js" />
     <Content Include="Angular\app.js" />
+    <Content Include="Angular\Controllers\Account.Register.Controller.js" />
     <Content Include="Angular\Controllers\Home.About.Controller.js" />
     <Content Include="Angular\Services\authInterceptorService.js" />
     <Content Include="Angular\Services\authService.js" />

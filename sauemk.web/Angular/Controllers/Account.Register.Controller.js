@@ -3,22 +3,20 @@
 
     angular
         .module('app')
-        .controller('Account.Login.Controller', Login);
+        .controller('Account.Register.Controller', Register);
 
-    Login.$inject = ['$scope', '$location', 'authService', 'ngAuthSettings'];
+    Register.$inject = ['$scope', '$location', '$http'];
 
-    function Login($scope, $location, authService, ngAuthSettings) {
-
-        $scope.loginData = {
-            userName: "",
+    function Register($scope, $location, $http) {
+        $scope.regisData = {
+            Email: "",
             Password: "",
-            useRefreshTokens: true
+            ConfirmPassword: ""
         };
-
-
-        $scope.login = function () {
+        $scope.loading = false
+        $scope.register = function () {
             $scope.loading = true;
-            authService.login($scope.loginData).then(function (response) {
+            $http.post('account/register', $scope.regisData).then(function (response) {
                 $location.path('/home');
                 $scope.loading = false;
             },
@@ -27,5 +25,6 @@
                  $scope.loading = false;
              });
         };
+
     }
 })();

@@ -13,6 +13,7 @@ using sauemk.web.Attributes;
 using sauemk.web.Services;
 using Newtonsoft.Json.Linq;
 using sauemk.web.Core;
+using RestSharp;
 
 namespace sauemk.web.Controllers
 {
@@ -79,13 +80,7 @@ namespace sauemk.web.Controllers
                 return Json(response.ModelError());
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-
             RestService service = new RestService();
-            var sass = service.Get<Object>("api/values");
-            var result = service.login(model.userName, model.Password);
-            
 
             return Json(service.login(model.userName, model.Password));
         }
@@ -147,30 +142,32 @@ namespace sauemk.web.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        //[ValidateAntiForgeryToken]
+        public JsonResult Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                return Json(response.ModelError());
+            }
+            RestService service = new RestService();
+            var request = new RestRequest(Method.POST);
+            request.Resource = "api/Account/Register";
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("grant_type", "password");
+            request.AddParameter("Email", model.Email);
+            request.AddParameter("Password", model.Password);
+            request.AddParameter("ConfirmPassword", model.ConfirmPassword);
 
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
+            var result = service.Execute<Object>(request);
+            if (result.data == null && result.error == false)
+            {
+                return Json(service.login(model.Email, model.Password));
+            }
+            else
+            {
+                return Json(response.ModelError());
             }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
         }
 
         //

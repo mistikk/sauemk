@@ -33,24 +33,13 @@
 
         var _login = function (loginData) {
 
-            var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
-
-            if (loginData.useRefreshTokens) {
-                data = data + "&client_id=" + ngAuthSettings.clientId;
-            }
-
             var deferred = $q.defer();
             $http.post('account/login', loginData).success(function (response) {
-                if (loginData.useRefreshTokens) {
-                    //localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
-                }
-                else {
-                   // localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false });
-                }
+                localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName});
                 _authentication.isAuth = true;
                 _authentication.userName = loginData.userName;
                 _authentication.useRefreshTokens = loginData.useRefreshTokens;
-
+                console.log(localStorageService.get('authorizationData'));
                 deferred.resolve(response);
 
             }).error(function (err, status) {
