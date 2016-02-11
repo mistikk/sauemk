@@ -15,32 +15,42 @@
             config.headers = config.headers || {};
 
             var authData = localStorageService.get('authorizationData');
-            console.info("authData", authData);
+
             if (authData) {
                 config.headers.Authorization = 'Bearer ' + authData.token;
             }
-            console.info("config", config);
+
             return config;
         }
-        var _response = function (sa) {
-            console.info("request", rejection);
+        var _response = function (response) {
+            if (response.data.error == "BadRequest") {
+                response.status = 400;
+                response.statusText = "BadRequest";
+                return $q.reject(response);
+            }
+            if (response.data.error == "Model is not valid") {
+                response.status = 411;
+                response.statusText = "Model is not valid";
+                return $q.reject(response);
+            }
+            if (response.data.error == "Unauthorized") {
+                response.status = 401;
+                response.statusText = "Unauthorized";
+                var authService = $injector.get('authService');
+                var authData = localStorageService.get('authorizationData');
+                authService.logOut();
+                $location.path('/login');
+                return $q.reject(response);
+            }
+            return response
         }
 
         var _responseError = function (rejection) {
-            console.log("1");
-            console.info("request", rejection);
+
             if (rejection.status === 403) {
-                console.log("2");
+
                 var authService = $injector.get('authService');
                 var authData = localStorageService.get('authorizationData');
-                console.log("3");
-                //if (authData) {
-                //    if (authData.useRefreshTokens) {
-                //        $location.path('/refresh');
-                //        return $q.reject(rejection);
-                //    }
-                //}
-                console.log("4");
                 authService.logOut();
                 $location.path('/login');
             }
@@ -49,6 +59,7 @@
 
         authInterceptorServiceFactory.request = _request;
         authInterceptorServiceFactory.responseError = _responseError;
+        authInterceptorServiceFactory.response = _response;
 
         return authInterceptorServiceFactory;
     }

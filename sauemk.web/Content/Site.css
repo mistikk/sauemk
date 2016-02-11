@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.fa-spinner {
+    font-size: 70px;
+    position: absolute;
+    top: calc(50%);
+    left: calc(50% - 50px);
+}

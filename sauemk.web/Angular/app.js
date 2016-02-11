@@ -5,7 +5,6 @@
 
     app.config(function ($routeProvider) {
 
-        console.log("sa");
 
         $routeProvider.when("/login", {
             controller: "Account.Login.Controller",

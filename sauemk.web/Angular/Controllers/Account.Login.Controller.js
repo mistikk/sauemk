@@ -18,14 +18,14 @@
         $scope.message = "";
 
         $scope.login = function () {
-
+            $scope.loading = true;
             authService.login($scope.loginData).then(function (response) {
-
                 $location.path('/home');
-
+                $scope.loading = false;
             },
              function (err) {
-                 $scope.message = err.error_description;
+                 sweetAlert("Hata..", "Kullanıcı adı yada şifre hatalı..", "error");
+                 $scope.loading = false;
              });
         };
     }

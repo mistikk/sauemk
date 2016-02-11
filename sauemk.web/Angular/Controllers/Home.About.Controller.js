@@ -11,7 +11,7 @@
         $scope.title = 'Mehmet Çükürük';
 
         $scope.Cukuruk = function (sa) {
-            console.log(sa);
+
             $scope.message = "Tıklama demedim mi sana. bak bunu yazmışın => " + sa;
         };
 

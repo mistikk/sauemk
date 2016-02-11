@@ -41,14 +41,11 @@
 
             var deferred = $q.defer();
             $http.post('account/login', loginData).success(function (response) {
-
-                console.info("data",response.data.access_token);
-                console.info("error",response.error);
                 if (loginData.useRefreshTokens) {
-                    localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
+                    //localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
                 }
                 else {
-                    localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false });
+                   // localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false });
                 }
                 _authentication.isAuth = true;
                 _authentication.userName = loginData.userName;
@@ -116,7 +113,6 @@
         };
 
         var _obtainAccessToken = function (externalData) {
-            console.log("obtainAccessToken");
             var deferred = $q.defer();
 
             $http.get(serviceBase + 'api/account/ObtainLocalAccessToken', { params: { provider: externalData.provider, externalAccessToken: externalData.externalAccessToken } }).success(function (response) {

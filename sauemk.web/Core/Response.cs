@@ -32,7 +32,7 @@ namespace sauemk.web.Core
         public Structure AuthorizeError()
         {
             Structure response = new Structure();
-            response.error = 401;
+            response.error = "Unauthorized";
             response.data = null;
             return response;
         }
