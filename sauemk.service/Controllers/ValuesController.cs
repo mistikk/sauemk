@@ -8,7 +8,8 @@ using System.Web.Http.Cors;
 
 namespace sauemk.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    [Authorize(Roles = "admin")]
     public class ValuesController : ApiController
     {
         // GET api/values
