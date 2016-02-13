@@ -219,7 +219,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EtkinlikController.cs" />
     <Compile Include="Controllers\EtkinliksController.cs" />
+    <Compile Include="Controllers\EtkinlikUsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoleManagerController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -292,6 +294,7 @@
       <DependentUpon>SauemkModel.edmx</DependentUpon>
       <LastGenOutput>SauemkModel.cs</LastGenOutput>
     </Content>
+    <Content Include="NewFile.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

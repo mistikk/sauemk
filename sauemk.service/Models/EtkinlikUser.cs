@@ -11,7 +11,8 @@ namespace sauemk.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Data.Entity;
+
     public partial class EtkinlikUser
     {
         public int Id { get; set; }
@@ -20,5 +21,6 @@ namespace sauemk.Models
         public Nullable<bool> CheckIn { get; set; }
         public Nullable<bool> CheckOut { get; set; }
         public Nullable<bool> CekilisKabul { get; set; }
+
     }
 }

@@ -13,44 +13,44 @@ using sauemk.Models;
 
 namespace sauemk.Controllers
 {
-    public class EtkinliksController : ApiController
+    public class EtkinlikUsersController : ApiController
     {
         private sauemkEntities db = new sauemkEntities();
 
-        // GET: api/Etkinliks
-        public IQueryable<Etkinlik> GetEtkinlik()
+        // GET: api/EtkinlikUsers
+        public IQueryable<EtkinlikUser> GetEtkinlikUser()
         {
-            return db.Etkinlik;
+            return db.EtkinlikUser;
         }
 
-        // GET: api/Etkinliks/5
-        [ResponseType(typeof(Etkinlik))]
-        public async Task<IHttpActionResult> GetEtkinlik(string id)
+        // GET: api/EtkinlikUsers/5
+        [ResponseType(typeof(EtkinlikUser))]
+        public async Task<IHttpActionResult> GetEtkinlikUser(int id)
         {
-            Etkinlik etkinlik = await db.Etkinlik.FindAsync(id);
-            if (etkinlik == null)
+            EtkinlikUser etkinlikUser = await db.EtkinlikUser.FindAsync(id);
+            if (etkinlikUser == null)
             {
                 return NotFound();
             }
 
-            return Ok(etkinlik);
+            return Ok(etkinlikUser);
         }
 
-        // PUT: api/Etkinliks/5
+        // PUT: api/EtkinlikUsers/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutEtkinlik(string id, Etkinlik etkinlik)
+        public async Task<IHttpActionResult> PutEtkinlikUser(int id, EtkinlikUser etkinlikUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != etkinlik.Id)
+            if (id != etkinlikUser.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(etkinlik).State = EntityState.Modified;
+            db.Entry(etkinlikUser).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace sauemk.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EtkinlikExists(id))
+                if (!EtkinlikUserExists(id))
                 {
                     return NotFound();
                 }
@@ -71,16 +71,16 @@ namespace sauemk.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Etkinliks
-        [ResponseType(typeof(Etkinlik))]
-        public async Task<IHttpActionResult> PostEtkinlik(Etkinlik etkinlik)
+        // POST: api/EtkinlikUsers
+        [ResponseType(typeof(EtkinlikUser))]
+        public async Task<IHttpActionResult> PostEtkinlikUser(EtkinlikUser etkinlikUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Etkinlik.Add(etkinlik);
+            db.EtkinlikUser.Add(etkinlikUser);
 
             try
             {
@@ -88,7 +88,7 @@ namespace sauemk.Controllers
             }
             catch (DbUpdateException)
             {
-                if (EtkinlikExists(etkinlik.Id))
+                if (EtkinlikUserExists(etkinlikUser.Id))
                 {
                     return Conflict();
                 }
@@ -98,23 +98,23 @@ namespace sauemk.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = etkinlik.Id }, etkinlik);
+            return CreatedAtRoute("DefaultApi", new { id = etkinlikUser.Id }, etkinlikUser);
         }
 
-        // DELETE: api/Etkinliks/5
-        [ResponseType(typeof(Etkinlik))]
-        public async Task<IHttpActionResult> DeleteEtkinlik(string id)
+        // DELETE: api/EtkinlikUsers/5
+        [ResponseType(typeof(EtkinlikUser))]
+        public async Task<IHttpActionResult> DeleteEtkinlikUser(int id)
         {
-            Etkinlik etkinlik = await db.Etkinlik.FindAsync(id);
-            if (etkinlik == null)
+            EtkinlikUser etkinlikUser = await db.EtkinlikUser.FindAsync(id);
+            if (etkinlikUser == null)
             {
                 return NotFound();
             }
 
-            db.Etkinlik.Remove(etkinlik);
+            db.EtkinlikUser.Remove(etkinlikUser);
             await db.SaveChangesAsync();
 
-            return Ok(etkinlik);
+            return Ok(etkinlikUser);
         }
 
         protected override void Dispose(bool disposing)
@@ -126,9 +126,9 @@ namespace sauemk.Controllers
             base.Dispose(disposing);
         }
 
-        private bool EtkinlikExists(string id)
+        private bool EtkinlikUserExists(int id)
         {
-            return db.Etkinlik.Count(e => e.Id == id) > 0;
+            return db.EtkinlikUser.Count(e => e.Id == id) > 0;
         }
     }
 }
