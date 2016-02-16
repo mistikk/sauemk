@@ -19,7 +19,7 @@
         $scope.login = function () {
             $scope.loading = true;
             authService.login($scope.loginData).then(function (response) {
-                $location.path('/home');
+                $location.path('/');
                 $scope.loading = false;
             },
              function (err) {

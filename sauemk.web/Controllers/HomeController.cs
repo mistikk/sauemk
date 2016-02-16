@@ -23,6 +23,10 @@ namespace sauemk.web.Controllers
 
             return View();
         }
+        public ActionResult Master()
+        {
+            return View();
+        }
 
         //[RESTAuthorize]
         public ActionResult About()

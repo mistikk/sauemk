@@ -1,45 +1,298 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <title>Porto - Responsive HTML5 Template 3.7.0</title>
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Porto - Responsive HTML5 Template">
+
+
+    <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="~/content/vendor/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="~/content/vendor/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="~/content/vendor/owlcarousel/owl.carousel.min.css" media="screen">
+    <link rel="stylesheet" href="~/content/vendor/owlcarousel/owl.theme.default.min.css" media="screen">
+    <link rel="stylesheet" href="~/content/vendor/magnific-popup/magnific-popup.css" media="screen">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/content/css/theme.css">
+    <link rel="stylesheet" href="~/content/css/theme-elements.css">
+    <link rel="stylesheet" href="~/content/css/theme-blog.css">
+    <link rel="stylesheet" href="~/content/css/theme-shop.css">
+    <link rel="stylesheet" href="~/content/css/theme-animate.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="~/content/vendor/rs-plugin/css/settings.css" media="screen">
+    <link rel="stylesheet" href="~/content/vendor/circle-flip-slideshow/css/component.css" media="screen">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="~/content/css/skins/default.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/content/css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="~/content/vendor/modernizr/modernizr.js"></script>
+
+    <!--[if IE]>
+        <link rel="stylesheet" href="~/content/css/ie.css">
+    <![endif]-->
+    <!--[if lte IE 8]>
+        <script src="~/content/vendor/respond/respond.js"></script>
+        <script src="~/content/vendor/excanvas/excanvas.js"></script>
+    <![endif]-->
+
 
 </head>
+
 <body data-ng-app="app">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+    <div class="body">
+        <header id="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="~/content/img/logo.png">
+                    </a>
+                </div>
+                <div class="search">
+                    <form id="searchForm" action="page-search-results.html" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <nav>
+                    <ul class="nav nav-pills nav-top">
+                        <li>
+                            <a href="about-us.html"><i class="fa fa-angle-right"></i>About Us</a>
+                        </li>
+                        <li>
+                            <a href="contact-us.html"><i class="fa fa-angle-right"></i>Contact Us</a>
+                        </li>
+                        <li class="phone">
+                            <span><i class="fa fa-phone"></i>(123) 456-7890</span>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+                    <i class="fa fa-bars"></i>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="navbar-collapse nav-main-collapse collapse">
+                <div class="container">
+                    <ul class="social-icons">
+                        <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+                        <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+                        <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+                    </ul>
+                    <nav class="nav-main mega-menu">
+                        <ul class="nav nav-pills nav-main" id="mainMenu">
+                            <li class="dropdown active">
+                                <a class="dropdown-toggle" href="index.html">
+                                    Home
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html">Home - Default</a></li>
+                                    <li><a href="index-1.html">Home - Corporate <span class="tip">hot</span></a></li>
+                                    <li><a href="index-2.html">Home - Color</a></li>
+                                    <li><a href="index-3.html">Home - Light</a></li>
+                                    <li><a href="index-4.html">Home - Video</a></li>
+                                    <li><a href="index-5.html">Home - Video - Light</a></li>
+                                    <li><a href="index-one-page.html">One Page Website</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="#">Sliders</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="index.html">Revolution Slider</a></li>
+                                            <li><a href="index-slider-2.html">Nivo Slider</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="shortcodes.html">Shortcodes</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="#">
+                                    About Us
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="about-us-basic.html">About Us - Basic</a></li>
+                                    <li><a href="about-me.html">About Me</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="#">
+                                    Portfolio
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="portfolio-4-columns.html">4 Columns</a></li>
+                                    <li><a href="portfolio-3-columns.html">3 Columns</a></li>
+                                    <li><a href="portfolio-2-columns.html">2 Columns</a></li>
+                                    <li><a href="portfolio-lightbox.html">Portfolio Lightbox</a></li>
+                                    <li><a href="portfolio-timeline.html">Portfolio Timeline</a></li>
+                                    <li><a href="portfolio-full-width.html">Portfolio Full Width</a></li>
+                                    <li><a href="portfolio-single-project.html">Single Project</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
             </div>
+        </header>
+
+        @*@Html.Partial("_LoginPartial")*@
+        <div role="main" class="main">
+
+            @RenderBody()
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-ribbon">
+                        <span>Get in Touch</span>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="newsletter">
+                            <h4>Newsletter</h4>
+                            <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
+
+                            <div class="alert alert-success hidden" id="newsletterSuccess">
+                                <strong>Success!</strong> You've been added to our email list.
+                            </div>
+
+                            <div class="alert alert-danger hidden" id="newsletterError"></div>
+
+                            <form id="newsletterForm" action="php/newsletter-subscribe.php" method="POST">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">Go!</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Latest Tweets</h4>
+                        <div id="tweet" class="twitter" data-plugin-tweets data-plugin-options='{"username": "", "count": 2}'>
+                            <p>Please wait...</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-details">
+                            <h4>Contact Us</h4>
+                            <ul class="contact">
+                                <li><p><i class="fa fa-map-marker"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</p></li>
+                                <li><p><i class="fa fa-phone"></i> <strong>Phone:</strong> (123) 456-7890</p></li>
+                                <li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <ul class="social-icons">
+                                <li class="facebook"><a href="http://www.facebook.com/" target="_blank" data-placement="bottom" data-tooltip title="Facebook">Facebook</a></li>
+                                <li class="twitter"><a href="http://www.twitter.com/" target="_blank" data-placement="bottom" data-tooltip title="Twitter">Twitter</a></li>
+                                <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" data-placement="bottom" data-tooltip title="Linkedin">Linkedin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <a href="index.html" class="logo">
+                                <img alt="Porto Website Template" class="img-responsive" src="~/content/img/logo-footer.png">
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <p>© Copyright 2015. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <nav id="sub-menu">
+                                <ul>
+                                    <li><a href="page-faq.html">FAQ's</a></li>
+                                    <li><a href="sitemap.html">Sitemap</a></li>
+                                    <li><a href="contact-us.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/angular")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+
+    <!-- Vendor -->
+    <script src="~/content/vendor/jquery/jquery.js"></script>
+    <script src="~/content/vendor/jquery.appear/jquery.appear.js"></script>
+    <script src="~/content/vendor/jquery.easing/jquery.easing.js"></script>
+    <script src="~/content/vendor/jquery-cookie/jquery-cookie.js"></script>
+    <script src="~/content/vendor/bootstrap/bootstrap.js"></script>
+    <script src="~/content/vendor/common/common.js"></script>
+    <script src="~/content/vendor/jquery.validation/jquery.validation.js"></script>
+    <script src="~/content/vendor/jquery.stellar/jquery.stellar.js"></script>
+    <script src="~/content/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="~/content/vendor/jquery.gmap/jquery.gmap.js"></script>
+    <script src="~/content/vendor/isotope/jquery.isotope.js"></script>
+    <script src="~/content/vendor/owlcarousel/owl.carousel.js"></script>
+    <script src="~/content/vendor/jflickrfeed/jflickrfeed.js"></script>
+    <script src="~/content/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="~/content/vendor/vide/vide.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="~/Content/js/theme.js"></script>
+
+    <!-- Specific Page Vendor and Views -->
+    <script src="~/content/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/content/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/content/vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
+    <script src="~/content/js/views/view.home.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="~/content/js/custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="~/content/js/theme.init.js"></script>
+
+    <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-12345678-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+     -->
+
+
 </body>
 </html>

@@ -4,23 +4,19 @@
 
 
 
-    @if (Request.IsAuthenticated)
-    {
-        <form>
+    
+        <form ng-if="authentication.isAuth">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="javascript:void(0)">Hello @User.Identity.GetUserName()</a>
+                    <a href="javascript:void(0)">Hello <span>{{authentication.username}}</span></a>
                 </li>
-                <li><a href="javascript:document.getElementById('logoutForm').submit()" ng-model="logOff()">Log off</a></li>
+                <li><a href="javascript:void(0)" ng-click="logOff()">Log off</a></li>
             </ul>
         </form>
-    }
-    }
-    else
-    {
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="javascript:void(0)" ng-model="register()" class="ng-pristine ng-untouched ng-valid">sssss</a></li>
-        <li><a href="javascript:void(0)" ng-model="login()" class="ng-pristine ng-untouched ng-valid">Login</a></li>
-    </ul>
-    }
+
+        <ul class="nav navbar-nav navbar-right" ng-if="authentication.isAuth == false">
+            <li><a href="javascript:void(0)" ng-click="register();" class="ng-pristine ng-untouched ng-valid">Register</a></li>
+            <li><a href="javascript:void(0)" ng-click="login();" class="ng-pristine ng-untouched ng-valid">Login</a></li>
+        </ul>
+
 </div>

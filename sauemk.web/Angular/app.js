@@ -5,7 +5,10 @@
 
     app.config(function ($routeProvider) {
 
-
+        $routeProvider.when("/home", {
+            controller: "",
+            templateUrl: "Home/Master"
+        });
         $routeProvider.when("/login", {
             controller: "Account.Login.Controller",
             templateUrl: "Account/Login"
