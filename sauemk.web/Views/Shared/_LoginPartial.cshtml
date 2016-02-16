@@ -1,22 +1,26 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
 
+<div ng-controller="Shared.LoginPartial.Controller">
+
+
+
+    @if (Request.IsAuthenticated)
+    {
+        <form>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="javascript:void(0)">Hello @User.Identity.GetUserName()</a>
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()" ng-model="logOff()">Log off</a></li>
+            </ul>
+        </form>
+    }
+    }
+    else
+    {
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li><a href="javascript:void(0)" ng-model="register()" class="ng-pristine ng-untouched ng-valid">sssss</a></li>
+        <li><a href="javascript:void(0)" ng-model="login()" class="ng-pristine ng-untouched ng-valid">Login</a></li>
     </ul>
     }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
+</div>
