@@ -22,6 +22,11 @@
             templateUrl: "Home/About"
         });
 
+        $routeProvider.when("/etkinlik", {
+            controller: "Etkinlik.Index.Controller",
+            templateUrl: "Etkinlik/Index"
+        });
+
         $routeProvider.otherwise({ redirectTo: "/home" });
 
     });

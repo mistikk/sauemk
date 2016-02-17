@@ -173,6 +173,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\RESTAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EtkinlikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Core\ErrorStructure.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Angular\app.js" />
     <Content Include="Angular\Controllers\Account.Register.Controller.js" />
     <Content Include="Angular\Controllers\Home.About.Controller.js" />
+    <Content Include="Angular\Controllers\Shared.Layout.Controller.js" />
     <Content Include="Angular\Controllers\Shared.LoginPartial.Controller.js" />
     <Content Include="Angular\Services\authInterceptorService.js" />
     <Content Include="Angular\Services\authService.js" />
@@ -612,6 +614,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Master.cshtml" />
+    <Content Include="Views\Etkinlik\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Angular\Directives\" />

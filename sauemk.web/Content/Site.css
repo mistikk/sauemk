@@ -1,1 +1,8 @@
 ﻿
+
+.fa-spinner {
+    font-size: 70px !important;
+    position: absolute;
+    top: calc(50%);
+    left: calc(50% - 50px);
+}

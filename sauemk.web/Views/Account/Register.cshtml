@@ -4,22 +4,74 @@
     Layout = null;
 }
 
-<form role="form">
-    <div class="row">
-        <div class="col-md-4">
-            &nbsp;
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Pages</li>
+                </ul>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2 class="form-login-heading">Register</h2>
-            <input ng-disabled="loading" type="text" class="form-control" placeholder="Username" data-ng-model="regisData.Email" required autofocus>
-            <input ng-disabled="loading" type="password" class="form-control" placeholder="Password" data-ng-model="regisData.Password" required>
-            <input ng-disabled="loading" type="password" class="form-control" placeholder="Confirm Password" data-ng-model="regisData.ConfirmPassword" required>
-            <button ng-disabled="loading" class="btn btn-md btn-info btn-block" type="submit" data-ng-click="register()" style="max-width:280px;">Register</button>
-
-            <i ng-show="loading" class="fa fa-spinner fa-spin"></i>
-        </div>
-        <div class="col-md-4">
-            &nbsp;
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Register</h1>
+            </div>
         </div>
     </div>
-</form>
+</section>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="row featured-boxes login">
+                <div class="col-sm-3">
+                    &nbsp;
+                </div>
+                <div class="col-sm-6">
+                    <div class="featured-box featured-box-secundary default info-content">
+                        <div class="box-content">
+                            <h4>Register An Account</h4>
+                            <form action="" id="" method="post">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label>E-mail Address</label>
+                                            <input type="text" value="" class="form-control input-lg" data-ng-model="regisData.Email" required autofocus>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <label>Password</label>
+                                            <input type="password" value="" class="form-control input-lg" data-ng-model="regisData.Password" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Re-enter Password</label>
+                                            <input type="password" value="" class="form-control input-lg"data-ng-model="regisData.ConfirmPassword" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a data-ng-click="register()" value="Register" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">Register</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <i ng-show="loading" class="fa fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    &nbsp;
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

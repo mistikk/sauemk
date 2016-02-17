@@ -7,10 +7,10 @@
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Responsive HTML5 Template">
 
-
+    
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    @Styles.Render("~/Content/css")
     <!-- Web Fonts  -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 
@@ -53,11 +53,11 @@
 </head>
 
 <body data-ng-app="app">
-    <div class="body">
+    <div class="body" ng-controller="Shared.Layout.Controller">
         <header id="header">
             <div class="container">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="#/home">
                         <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="~/content/img/logo.png">
                     </a>
                 </div>
@@ -120,7 +120,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="shortcodes.html">Shortcodes</a>
+                                <a ng-click="goEtkinlikPage();" href="javascript:void(0)">Etkinlik</a>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#">
@@ -243,7 +243,7 @@
     </div>
 
     @Scripts.Render("~/bundles/angular")
-
+    @Scripts.Render("~/bundles/sweetalert")
 
     <!-- Vendor -->
     <script src="~/content/vendor/jquery/jquery.js"></script>

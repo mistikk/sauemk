@@ -24,11 +24,14 @@ namespace sauemk.web
                       "~/Scripts/respond.js",
                       "~/Scripts/sweetalert.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/sweetalert").Include(
+                      "~/Scripts/sweetalert.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
                       "~/Content/sweetalert.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
 
             //Angular
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
