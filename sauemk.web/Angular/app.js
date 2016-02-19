@@ -27,6 +27,16 @@
             templateUrl: "Etkinlik/Index"
         });
 
+        $routeProvider.when("/admin", {
+            controller: "Admin.Liste.Controller",
+            templateUrl: "Admin/Liste"
+        });
+
+        $routeProvider.when("/etkinlikekle", {
+            controller: "Admin.EtkinlikEkle.Controller",
+            templateUrl: "Admin/EtkinlikEkle"
+        });
+
         $routeProvider.otherwise({ redirectTo: "/home" });
 
     });

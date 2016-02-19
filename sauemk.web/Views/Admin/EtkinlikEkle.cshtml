@@ -1,0 +1,112 @@
+﻿@model sauemk.web.Models.EtkinlikModel
+@{
+    Layout = null;
+}
+
+<div ng-controller="Admin.EtkinlikEkle.Controller as ctrl">
+
+
+    <section class="page-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Features</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Forms Basic</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <a href="#" class="fa fa-caret-down"></a>
+                            <a href="#" class="fa fa-times"></a>
+                        </div>
+
+                        <h2 class="panel-title">Form Elements</h2>
+                    </header>
+                    <div class="panel-body">
+
+                        <form method="post" enctype="multipart/form-data" id="dropzoneForm" class="dropzone form-horizontal" ng-dropzone dropzone="ctrl.dropzone" dropzone-config="ctrl.dropzoneConfig"event-handlers="{ 'addedfile': ctrl.dzAddedFile, 'error': ctrl.dzError }">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="inputDefault">Etkinlik Adı</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="inputDefault">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Etkinlik Tarihi</label>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" data-plugin-datepicker class="form-control" data-provide="datepicker">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Açılış Tarihi</label>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" data-plugin-datepicker class="form-control" data-provide="datepicker">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Kapanış Tarihi</label>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" data-plugin-datepicker class="form-control" data-provide="datepicker">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Afiş</label>
+                                <div class="col-md-6">
+                                    <div class="fallback">
+                                        <input name="file" type="file" multiple />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="textareaAutosize">Açıklama</label>
+                                <div class="col-md-6">
+                                    <textarea class="form-control" rows="3" id="textareaAutosize" data-plugin-textarea-autosize></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-center">
+                                    <div class="mb-md">
+                                        <button ng-click="sa();" type="submit" id="addToTable" class="btn btn-primary" style="width:20%; height:40px; margin-top:10px;">Ekle <i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+</div>

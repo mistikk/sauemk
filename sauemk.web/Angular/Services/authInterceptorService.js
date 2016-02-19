@@ -23,6 +23,8 @@
             return config;
         }
         var _response = function (response) {
+            console.log("sa");
+            console.log(response);
             if (response.data.error == "BadRequest") {
                 response.status = 400;
                 response.statusText = "BadRequest";
