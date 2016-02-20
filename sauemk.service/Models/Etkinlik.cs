@@ -14,12 +14,12 @@ namespace sauemk.Models
     
     public partial class Etkinlik
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Adi { get; set; }
         public Nullable<System.DateTime> Tarihi { get; set; }
         public Nullable<System.DateTime> AcilisTarihi { get; set; }
         public Nullable<System.DateTime> KapanisTarihi { get; set; }
         public string Aciklama { get; set; }
-        public byte[] Foto { get; set; }
+        public string FotoName { get; set; }
     }
 }

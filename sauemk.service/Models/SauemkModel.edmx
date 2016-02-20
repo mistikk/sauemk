@@ -66,19 +66,17 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'sauemk.dbo.Etkinlik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Etkinlik">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Adi" Type="nchar" MaxLength="100" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="100" />
           <Property Name="Tarihi" Type="datetime" />
           <Property Name="AcilisTarihi" Type="datetime" />
           <Property Name="KapanisTarihi" Type="datetime" />
           <Property Name="Aciklama" Type="text" />
-          <Property Name="Foto" Type="image" />
+          <Property Name="FotoName" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'sauemk.dbo.EtkinlikUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -174,17 +172,7 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Etkinlik" EntityType="Self.Etkinlik" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Etkinlik].[Id] AS [Id], 
-    [Etkinlik].[Adi] AS [Adi], 
-    [Etkinlik].[Tarihi] AS [Tarihi], 
-    [Etkinlik].[AcilisTarihi] AS [AcilisTarihi], 
-    [Etkinlik].[KapanisTarihi] AS [KapanisTarihi], 
-    [Etkinlik].[Aciklama] AS [Aciklama], 
-    [Etkinlik].[Foto] AS [Foto]
-    FROM [dbo].[Etkinlik] AS [Etkinlik]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Etkinlik" EntityType="Self.Etkinlik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EtkinlikUser" EntityType="Self.EtkinlikUser" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [EtkinlikUser].[Id] AS [Id], 
@@ -226,18 +214,6 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="sauemkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Etkinlik">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Adi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="Tarihi" Type="DateTime" Precision="3" />
-          <Property Name="AcilisTarihi" Type="DateTime" Precision="3" />
-          <Property Name="KapanisTarihi" Type="DateTime" Precision="3" />
-          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="EtkinlikUser">
           <Key>
             <PropertyRef Name="Id" />
@@ -266,7 +242,6 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
           <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityContainer Name="sauemkEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Etkinlik" EntityType="Self.Etkinlik" />
           <EntitySet Name="EtkinlikUser" EntityType="Self.EtkinlikUser" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
           <EntitySet Name="C__MigrationHistory" EntityType="sauemkModel.C__MigrationHistory" />
@@ -286,6 +261,7 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Etkinlik" EntityType="sauemkModel.Etkinlik" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -378,25 +354,24 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
           <End Type="sauemkModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="sauemkModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
         </Association>
+        <EntityType Name="Etkinlik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tarihi" Type="DateTime" Precision="3" />
+          <Property Name="AcilisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="KapanisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FotoName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="sauemkModelStoreContainer" CdmEntityContainer="sauemkEntities">
-          <EntitySetMapping Name="Etkinlik">
-            <EntityTypeMapping TypeName="sauemkModel.Etkinlik">
-              <MappingFragment StoreEntitySet="Etkinlik">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Adi" ColumnName="Adi" />
-                <ScalarProperty Name="Tarihi" ColumnName="Tarihi" />
-                <ScalarProperty Name="AcilisTarihi" ColumnName="AcilisTarihi" />
-                <ScalarProperty Name="KapanisTarihi" ColumnName="KapanisTarihi" />
-                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
-                <ScalarProperty Name="Foto" ColumnName="Foto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="EtkinlikUser">
             <EntityTypeMapping TypeName="sauemkModel.EtkinlikUser">
               <MappingFragment StoreEntitySet="EtkinlikUser">
@@ -484,6 +459,19 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Etkinlik">
+            <EntityTypeMapping TypeName="sauemkModel.Etkinlik">
+              <MappingFragment StoreEntitySet="Etkinlik">
+                <ScalarProperty Name="FotoName" ColumnName="FotoName" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="KapanisTarihi" ColumnName="KapanisTarihi" />
+                <ScalarProperty Name="AcilisTarihi" ColumnName="AcilisTarihi" />
+                <ScalarProperty Name="Tarihi" ColumnName="Tarihi" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -22,10 +22,11 @@ namespace sauemk.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             throw new UnintentionalCodeFirstException();
         }
+
     
-        public virtual DbSet<Etkinlik> Etkinlik { get; set; }
         public virtual DbSet<EtkinlikUser> EtkinlikUser { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
@@ -33,5 +34,6 @@ namespace sauemk.Models
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Etkinlik> Etkinlik { get; set; }
     }
 }

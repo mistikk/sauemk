@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using sauemk.web.Models;
 using sauemk.web.Services;
 using System;
 using System.Collections.Generic;
@@ -31,13 +32,15 @@ namespace sauemk.web.Controllers
         }
         public ActionResult EtkinlikEkle()
         {
-            return View();
+            EtkinlikModel etkinlik = new EtkinlikModel();
+            return View(etkinlik);
         }
 
-        public ActionResult SaveUploadedFile()
+        public ActionResult SaveUploadedFile(EtkinlikModel etkinlik)
         {
             bool isSavedSuccessfully = true;
             string fName = "";
+            var path = "";
             try
             {
                 foreach (string fileName in Request.Files)
@@ -48,7 +51,7 @@ namespace sauemk.web.Controllers
                     if (file != null && file.ContentLength > 0)
                     {
 
-                        var originalDirectory = new DirectoryInfo(string.Format("{0}Images\\WallImages", Server.MapPath(@"\")));
+                        var originalDirectory = new DirectoryInfo(string.Format("{0}Images\\Afis", Server.MapPath(@"\")));
 
                         string pathString = System.IO.Path.Combine(originalDirectory.ToString(), "imagepath");
 
@@ -59,7 +62,7 @@ namespace sauemk.web.Controllers
                         if (!isExists)
                             System.IO.Directory.CreateDirectory(pathString);
 
-                        var path = string.Format("{0}\\{1}", pathString, file.FileName);
+                        path = string.Format("{0}\\{1}", pathString, file.FileName);
                         file.SaveAs(path);
 
                     }
@@ -75,7 +78,18 @@ namespace sauemk.web.Controllers
 
             if (isSavedSuccessfully)
             {
-                return Json(new { Message = fName });
+                RestService service = new RestService();
+                RestRequest request = new RestRequest("api/Etkinliks", Method.POST);
+                var token = Request.Headers["Authorization"];
+                request.AddParameter("Adi", etkinlik.EtkinlikAdi);
+                request.AddParameter("Tarihi", etkinlik.EtkinlikTarihi.ToShortDateString());
+                request.AddParameter("AcilisTarihi", etkinlik.AcilisTarihi);
+                request.AddParameter("KapanisTarihi", etkinlik.KapanisTarihi);
+                request.AddParameter("Aciklama", etkinlik.Aciklama);
+                request.AddParameter("FotoName", fName);
+
+                var result = service.Execute<Object>(request,token);
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
             else
             {
