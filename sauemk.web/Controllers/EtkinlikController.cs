@@ -19,14 +19,11 @@ namespace sauemk.web.Controllers
         public JsonResult getEtkinlik()
         {
             dynamic etkinlik = new Object();
-            etkinlik.gecmis = "";
             RestService service = new RestService();
             var token = Request.Headers["Authorization"];
             var gecmis = service.Get<Object>("api/GecmisEtkinlik", token);
             var gelecek = service.Get<Object>("api/GelecekEtkinlik", token);
             var buHafta = service.Get<Object>("api/HaftaEtkinlik", token);
-            etkinlik.gecmis = gecmis;
-            etkinlik.gelecek = gelecek;
             return etkinlik;
         }
 
