@@ -21,7 +21,7 @@
     </div>
 </section>
 
-<div class="container">
+<div class="container" ng-init="getEtkinlik();">
 
     <h2><strong>Geçmiş</strong> Etkinlikler</h2>
 
@@ -30,83 +30,25 @@
     <div class="row">
 
         <ul class="team-list sort-destination" data-sort-id="team">
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item leadership">
+            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item leadership" ng-repeat="etkinlik in gecmisEtkinlik">
+
                 <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-1.jpg">
+                    <a href="javascript:void(0)" ng-click="goEtkinlik(etkinlik.Id);" class="thumb-info team">
+                        <img class="img-responsive" alt="" src="~/Images/Afis/imagepath/{{etkinlik.FotoName}}" >
                         <span class="thumb-info-title">
-                            <span class="thumb-info-inner">John Doe</span>
-                            <span class="thumb-info-type">CEO</span>
+                            <span style="white-space: normal;" class="thumb-info-inner">{{etkinlik.Adi}}</span>
+                            <span class="thumb-info-type">{{etkinlik.Tarihi | date:'dd/MM/yyyy'}}</span>
                         </span>
                     </a>
                     <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
+                        <p>{{etkinlik.Aciklama}}</p>
+                        <span class="thumb-info-social-icons text-center">
+                            <a ng-click="goEtkinlik(etkinlik.Id);" class="btn btn-md btn-primary" style="width:50%;">Detay</a>
                         </span>
                     </span>
                 </div>
             </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item marketing">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-2.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Jessica Doe</span>
-                            <span class="thumb-info-type">Marketing</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item development">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-3.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Rick Edward Doe</span>
-                            <span class="thumb-info-type">Developer</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item design">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-4.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Melinda Wolosky</span>
-                            <span class="thumb-info-type">Design</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            
+
         </ul>
 
     </div>
@@ -117,83 +59,25 @@
     <div class="row">
 
         <ul class="team-list sort-destination" data-sort-id="team">
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item leadership">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-1.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">John Doe</span>
-                            <span class="thumb-info-type">CEO</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item marketing">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-2.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Jessica Doe</span>
-                            <span class="thumb-info-type">Marketing</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item development">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-3.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Rick Edward Doe</span>
-                            <span class="thumb-info-type">Developer</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item design">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-4.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Melinda Wolosky</span>
-                            <span class="thumb-info-type">Design</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
+            
+            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item leadership" ng-repeat="etkinlik in buHaftaEtkinlik">
 
+                <div class="team-item thumbnail">
+                    <a href="javascript:void(0)" ng-click="goEtkinlik(etkinlik.Id);" class="thumb-info team">
+                        <img class="img-responsive" alt="" src="~/Images/Afis/imagepath/{{etkinlik.FotoName}}">
+                        <span class="thumb-info-title">
+                            <span style="white-space: normal;" class="thumb-info-inner">{{etkinlik.Adi}}</span>
+                            <span class="thumb-info-type">{{etkinlik.Tarihi | date:'dd/MM/yyyy'}}</span>
+                        </span>
+                    </a>
+                    <span class="thumb-info-caption">
+                        <p>{{etkinlik.Aciklama}}</p>
+                        <span class="thumb-info-social-icons text-center">
+                            <a ng-click="goEtkinlik(etkinlik.Id);" class="btn btn-md btn-primary" style="width:50%;">Detay</a>
+                        </span>
+                    </span>
+                </div>
+            </li>
         </ul>
 
     </div>
@@ -205,78 +89,20 @@
     <div class="row">
 
         <ul class="team-list sort-destination" data-sort-id="team">
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item leadership">
+            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item leadership" ng-repeat="etkinlik in gelecekEtkinlik">
+
                 <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-1.jpg">
+                    <a href="javascript:void(0)" ng-click="goEtkinlik(etkinlik.Id);" class="thumb-info team">
+                        <img class="img-responsive" alt="" src="~/Images/Afis/imagepath/{{etkinlik.FotoName}}">
                         <span class="thumb-info-title">
-                            <span class="thumb-info-inner">John Doe</span>
-                            <span class="thumb-info-type">CEO</span>
+                            <span style="white-space: normal;" class="thumb-info-inner">{{etkinlik.Adi}}</span>
+                            <span class="thumb-info-type">{{etkinlik.Tarihi | date:'dd/MM/yyyy'}}</span>
                         </span>
                     </a>
                     <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item marketing">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-2.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Jessica Doe</span>
-                            <span class="thumb-info-type">Marketing</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item development">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-3.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Rick Edward Doe</span>
-                            <span class="thumb-info-type">Developer</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
-                        </span>
-                    </span>
-                </div>
-            </li>
-            <li class="col-md-3 col-sm-6 col-xs-12 isotope-item design">
-                <div class="team-item thumbnail">
-                    <a href="about-me.html" class="thumb-info team">
-                        <img class="img-responsive" alt="" src="~/content/img/team/team-4.jpg">
-                        <span class="thumb-info-title">
-                            <span class="thumb-info-inner">Melinda Wolosky</span>
-                            <span class="thumb-info-type">Design</span>
-                        </span>
-                    </a>
-                    <span class="thumb-info-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <span class="thumb-info-social-icons">
-                            <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
-                            <a data-tooltip data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
+                        <p>{{etkinlik.Aciklama}}</p>
+                        <span class="thumb-info-social-icons text-center">
+                            <a ng-click="goEtkinlik(etkinlik.Id);" class="btn btn-md btn-primary" style="width:50%;">Detay</a>
                         </span>
                     </span>
                 </div>

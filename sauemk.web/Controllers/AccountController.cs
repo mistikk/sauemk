@@ -155,18 +155,13 @@ namespace sauemk.web.Controllers
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("grant_type", "password");
             request.AddParameter("Email", model.Email);
+            request.AddParameter("Name", model.Name);
+            request.AddParameter("Surname", model.Surname);
             request.AddParameter("Password", model.Password);
             request.AddParameter("ConfirmPassword", model.ConfirmPassword);
 
             var result = service.Execute<Object>(request);
-            if (result.data == null && result.error == false)
-            {
-                return Json(service.login(model.Email, model.Password));
-            }
-            else
-            {
-                return Json(response.ModelError());
-            }
+            return Json(result);
 
         }
 

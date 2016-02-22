@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="#">Etkinlik</a></li>
+                    <li class="active">Detay</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Etkinlik Detayı</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" ng-init="getDetail();">
+
+    <div class="row">
+        <div class="col-md-4">
+            <img alt="" class="img-responsive" src="~/Images/Afis/imagepath/{{etkinlik.FotoName}}">
+        </div>
+
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="shorter">{{etkinlik.Adi}}</h2>
+                    <h4>{{etkinlik.Tarihi | date:'dd/MM/yyyy'}}</h4>
+                </div>
+                <div class="col-md-6">
+                    <button ng-click="etkinlikKayit();" class="btn {{buttonClass}} btn-lg" style="float:right; margin-top:10px; width:40%;"><i ng-show="loading" class="fa fa-refresh fa-spin"></i> {{buttonMessage}}</button>
+                </div>
+            </div>
+            
+            
+
+            <span class="thumb-info-social-icons">
+            </span>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.</p>
+
+            <ul class="list icons list-unstyled">
+                <li><i class="fa fa-check"></i> Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.</li>
+                <li><i class="fa fa-check"></i> Phasellus in risus quis lectus iaculis vulputate id quis nisl.</li>
+                <li><i class="fa fa-check"></i> Iaculis vulputate id quis nisl.</li>
+            </ul>
+
+            
+
+        </div>
+    </div>
+
+</div>

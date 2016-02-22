@@ -65,6 +65,8 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="Etkinlik">
           <Key>
@@ -78,15 +80,13 @@
           <Property Name="Aciklama" Type="text" />
           <Property Name="FotoName" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'sauemk.dbo.EtkinlikUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EtkinlikUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" />
-          <Property Name="EtkinlikId" Type="nchar" MaxLength="100" />
+          <Property Name="EtkinlikId" Type="nvarchar" MaxLength="100" />
           <Property Name="CheckIn" Type="bit" />
           <Property Name="CheckOut" Type="bit" />
           <Property Name="CekilisKabul" Type="bit" />
@@ -173,16 +173,7 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Etkinlik" EntityType="Self.Etkinlik" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EtkinlikUser" EntityType="Self.EtkinlikUser" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EtkinlikUser].[Id] AS [Id], 
-    [EtkinlikUser].[UserId] AS [UserId], 
-    [EtkinlikUser].[EtkinlikId] AS [EtkinlikId], 
-    [EtkinlikUser].[CheckIn] AS [CheckIn], 
-    [EtkinlikUser].[CheckOut] AS [CheckOut], 
-    [EtkinlikUser].[CekilisKabul] AS [CekilisKabul]
-    FROM [dbo].[EtkinlikUser] AS [EtkinlikUser]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="EtkinlikUser" EntityType="Self.EtkinlikUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
             <DefiningQuery>SELECT 
     [database_firewall_rules].[id] AS [id], 
@@ -220,7 +211,7 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="EtkinlikId" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="EtkinlikId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CheckIn" Type="Boolean" />
           <Property Name="CheckOut" Type="Boolean" />
           <Property Name="CekilisKabul" Type="Boolean" />
@@ -321,6 +312,8 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
           <NavigationProperty Name="AspNetUserClaims" Relationship="sauemkModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="sauemkModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="sauemkModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="sauemkModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
@@ -436,6 +429,8 @@ warning 6002: The table/view 'sauemk.sys.database_firewall_rules' does not have 
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="sauemkModel.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
                 <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />

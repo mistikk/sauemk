@@ -1962,10 +1962,8 @@ html.boxed .pricing-table .plan, html.boxed .pricing-table h3 {
 
 .thumb-info-social-icons a {
 	background: #CCC;
-	border-radius: 25px;
+	border-radius: 5px;
 	display: inline-block;
-	height: 30px;
-	line-height: 30px;
 	text-align: center;
 	width: 30px;
 }
@@ -1980,7 +1978,7 @@ html.boxed .pricing-table .plan, html.boxed .pricing-table h3 {
 
 .thumb-info-social-icons a i {
 	color: #FFF;
-	font-size: 0.9em;
+	font-size: 0.7em;
 	font-weight: normal;
 }
 

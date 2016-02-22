@@ -57,7 +57,8 @@ namespace sauemk.Controllers
         [ResponseType(typeof(Etkinlik))]
         public IHttpActionResult GelecekEtkinlik()
         {
-            IQueryable<Etkinlik> etkinlik = db.Etkinlik.Where(x => x.Tarihi > DateTime.Now.AddDays(7)).OrderByDescending(x => x.Tarihi).Take(4);
+            var date = DateTime.Now.AddDays(7);
+            IQueryable<Etkinlik> etkinlik = db.Etkinlik.Where(x => x.Tarihi > date).OrderByDescending(x => x.Tarihi).Take(4);
             if (etkinlik == null)
             {
                 return NotFound();
@@ -72,7 +73,8 @@ namespace sauemk.Controllers
         [ResponseType(typeof(Etkinlik))]
         public IHttpActionResult HaftaEtkinlik()
         {
-            IQueryable<Etkinlik> etkinlik = db.Etkinlik.Where(x => x.Tarihi < DateTime.Now.AddDays(7) && x.Tarihi > DateTime.Now).OrderByDescending(x => x.Tarihi).Take(4);
+            var date = DateTime.Now.AddDays(7);
+            IQueryable<Etkinlik> etkinlik = db.Etkinlik.Where(x => x.Tarihi < date && x.Tarihi > DateTime.Now).OrderByDescending(x => x.Tarihi).Take(4);
             if (etkinlik == null)
             {
                 return NotFound();

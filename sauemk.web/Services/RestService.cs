@@ -48,8 +48,8 @@ namespace sauemk.web.Services
         public Structure Execute<T>(RestRequest request) where T : new()
         {
             Response result = new Response();
-            var sa = Request.Headers["Authorization"];
-            request.AddParameter("Authorization", string.Format(sa), ParameterType.HttpHeader);
+            //var sa = Request.Headers["Authorization"];
+            //request.AddParameter("Authorization", string.Format(sa), ParameterType.HttpHeader);
 
             var response = client.Execute<T>(request);
 

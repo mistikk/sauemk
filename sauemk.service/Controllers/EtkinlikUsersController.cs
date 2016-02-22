@@ -79,24 +79,27 @@ namespace sauemk.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.EtkinlikUser.Add(etkinlikUser);
-
-            try
+            if (!UserExists(etkinlikUser.UserId, etkinlikUser.EtkinlikId))
             {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (EtkinlikUserExists(etkinlikUser.Id))
+                db.EtkinlikUser.Add(etkinlikUser);
+
+                try
                 {
-                    return Conflict();
+                    await db.SaveChangesAsync();
                 }
-                else
+                catch (DbUpdateException)
                 {
-                    throw;
+                    if (EtkinlikUserExists(etkinlikUser.Id))
+                    {
+                        return Conflict();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
             }
+            
 
             return CreatedAtRoute("DefaultApi", new { id = etkinlikUser.Id }, etkinlikUser);
         }
@@ -125,7 +128,14 @@ namespace sauemk.Controllers
             }
             base.Dispose(disposing);
         }
-
+        private bool UserExists(string username, string etkinlikId)
+        {
+            return db.EtkinlikUser.Count(e => e.UserId == username && e.EtkinlikId == etkinlikId) > 0;
+        }
+        private bool EtkinlikExists(string etkinlikId)
+        {
+            return db.EtkinlikUser.Count(e => e.EtkinlikId == etkinlikId) > 0;
+        }
         private bool EtkinlikUserExists(int id)
         {
             return db.EtkinlikUser.Count(e => e.Id == id) > 0;

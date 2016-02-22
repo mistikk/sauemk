@@ -16,6 +16,9 @@ using Microsoft.Owin.Security.OAuth;
 using sauemk.Models;
 using sauemk.Providers;
 using sauemk.Results;
+using System.Linq;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace sauemk.Controllers
 {
@@ -23,6 +26,7 @@ namespace sauemk.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
+        private sauemkEntities db = new sauemkEntities();
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
@@ -125,7 +129,7 @@ namespace sauemk.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -258,9 +262,9 @@ namespace sauemk.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -337,6 +341,22 @@ namespace sauemk.Controllers
                 return GetErrorResult(result);
             }
 
+            AspNetUsers kullanici = new AspNetUsers();
+
+            kullanici = db.AspNetUsers.FirstOrDefault(x => x.Email == model.Email);
+            kullanici.Name = model.Name;
+            kullanici.Surname = model.Surname;
+            db.Entry(kullanici).State = EntityState.Modified;
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+
+
             return Ok();
         }
 
@@ -368,7 +388,7 @@ namespace sauemk.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }
