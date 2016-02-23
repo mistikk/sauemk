@@ -38,6 +38,7 @@
             $http.post('account/login', loginData).success(function (response) {
                 localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName });
                 console.log("login post");
+                window.location.reload();
                 _authentication.isAuth = true;
                 _authentication.userName = loginData.userName;
                 _authentication.useRefreshTokens = loginData.useRefreshTokens;

@@ -14,12 +14,10 @@
             username: ""
         }
 
-        $timeout(function () {
-            if (authService.authentication.isAuth == true) {
-                $scope.authentication.isAuth = true;
-                $scope.authentication.username = authService.authentication.userName;
-            }
-        }, 100);
+        if (authService.authentication.isAuth == true) {
+            $scope.authentication.isAuth = true;
+            $scope.authentication.username = authService.authentication.userName;
+        }
 
         
 
