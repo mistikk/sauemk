@@ -35,12 +35,16 @@
                     <div class="featured-box featured-box-secundary default info-content">
                         <div class="box-content">
                             <h4>Register An Account</h4>
-                            <form action="" id="" method="post">
+
+                            <form name="regisForm" action="" id="" method="post" novalidate>
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label>Name</label>
-                                            <input type="text" value="" class="form-control input-lg" data-ng-model="regisData.Name" required autofocus>
+                                            <input type="text" name="name" class="form-control input-lg" data-ng-model="regisData.Name" required autofocus>
+                                            <span style="color:red" ng-show="regisForm.name.$dirty && regisForm.name.$invalid">
+                                                <span ng-show="regisForm.name.$error.required">Name is required.</span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +52,10 @@
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label>Surname</label>
-                                            <input type="text" value="" class="form-control input-lg" data-ng-model="regisData.Surname" required autofocus>
+                                            <input type="text" name="surname" class="form-control input-lg" data-ng-model="regisData.Surname" required autofocus>
+                                            <span style="color:red" ng-show="regisForm.surname.$dirty && regisForm.surname.$invalid">
+                                                <span ng-show="regisForm.surname.$error.required">Surname is required.</span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -56,7 +63,11 @@
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label>E-mail Address</label>
-                                            <input type="text" value="" class="form-control input-lg" data-ng-model="regisData.Email" required autofocus>
+                                            <input type="email" name="email" class="form-control input-lg" data-ng-model="regisData.Email" required autofocus>
+                                            <span style="color:red" ng-show="regisForm.email.$dirty && regisForm.email.$invalid">
+                                                <span ng-show="regisForm.email.$error.required">Email is required.</span>
+                                                <span ng-show="regisForm.email.$error.email">Invalid email address.</span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -64,17 +75,34 @@
                                     <div class="form-group">
                                         <div class="col-md-6">
                                             <label>Password</label>
-                                            <input type="password" value="" class="form-control input-lg" data-ng-model="regisData.Password" required>
+                                            <input type="password" ng-minlength="3" name="Password" class="form-control input-lg" data-ng-model="regisData.Password" required>
+                                            <span style="color:red" ng-show="regisForm.Password.$dirty && regisForm.Password.$invalid">
+                                                <span ng-show="regisForm.Password.$error.required">Password is required.</span>
+                                                <span ng-show="regisForm.Password.$error.minlength">Password is too short. Min 6 characters</span>
+                                            </span>
                                         </div>
                                         <div class="col-md-6">
                                             <label>Re-enter Password</label>
-                                            <input type="password" value="" class="form-control input-lg"data-ng-model="regisData.ConfirmPassword" required>
+                                            <input type="password" name="ConfirmPassword" class="form-control input-lg"data-ng-model="regisData.ConfirmPassword" required>
+                                            <span style="color:red" ng-show="regisForm.ConfirmPassword.$dirty && regisForm.ConfirmPassword.$invalid">
+                                                <span ng-show="regisForm.ConfirmPassword.$error.required">Password is required.</span>
+                                            </span>
+                                            <span style="color:red" ng-show="regisData.Password != regisData.ConfirmPassword">Passwords don't match.</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <a data-ng-click="register()" value="Register" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">Register</a>
+                                    <div class="col-md-12 text-center">
+                                        <a data-ng-click="register()" 
+                                           value="Register" 
+                                           class="btn btn-primary pull-right push-bottom" 
+                                           data-loading-text="Loading..." 
+                                           ng-disabled="regisForm.name.$dirty && regisForm.name.$invalid || regisData.Name == '' ||
+                                                        regisForm.surname.$dirty && regisForm.surname.$invalid || regisData.Surname == '' ||
+                                                        regisForm.email.$dirty && regisForm.email.$invalid || regisData.Email == '' ||
+                                                        regisForm.Password.$dirty && regisForm.Password.$invalid || regisData.Password == ''  ||
+                                                        regisData.Password != regisData.ConfirmPassword
+                                                        ">Register</a>
                                     </div>
                                 </div>
                             </form>

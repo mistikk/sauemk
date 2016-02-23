@@ -32,10 +32,12 @@
         };
 
         var _login = function (loginData) {
-
+            console.log("login");
+            console.log(loginData);
             var deferred = $q.defer();
             $http.post('account/login', loginData).success(function (response) {
-                localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName});
+                localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName });
+                console.log("login post");
                 _authentication.isAuth = true;
                 _authentication.userName = loginData.userName;
                 _authentication.useRefreshTokens = loginData.useRefreshTokens;
