@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using RestSharp;
+using sauemk.web.Core;
 using sauemk.web.Models;
 using sauemk.web.Services;
 using System;
@@ -48,6 +49,11 @@ namespace sauemk.web.Controllers
 
         public JsonResult EtkinlikKayit(EtkinlikKayitModel kayitData)
         {
+            Response response = new Response();
+            if (kayitData.userName == null)
+            {
+                return Json(response.AuthorizeError());
+            }
             RestService service = new RestService();
             var request = new RestRequest("api/EtkinlikUsers", Method.POST);
             request.AddParameter("UserId",kayitData.userName);
