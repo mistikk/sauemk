@@ -9,6 +9,9 @@
 
     function Etkinlik($scope, $routeParams, $http, authService) {
 
+        var date = new Date();
+        $scope.buttonShow = true;
+        $scope.etkinlik = "";
         $scope.buttonMessage = "Katıl";
         $scope.buttonClass = "btn-info"
         $scope.requestData = {
@@ -19,8 +22,13 @@
         $scope.getDetail = function () {
             $http.get("etkinlik/Etkinlik/" + $scope.requestData.etkinlikId).then(function (response) {
                 $scope.etkinlik = response.data.data;
+                var etkinlikTarihi = new Date($scope.etkinlik.Tarihi);
+                if (etkinlikTarihi < date) {
+                    $scope.buttonShow = false;
+                }
             });
         };
+        
 
         $scope.etkinlikKayit = function () {
             $scope.buttonMessage = "";
