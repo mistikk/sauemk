@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h1>Login</h1>
+                <h1>Giriş Yap</h1>
             </div>
         </div>
     </div>
@@ -40,10 +40,10 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label>Username or E-mail Address</label>
+                                            <label>Kullanıcı Adı veya Mail Adresi</label>
                                             <input type="text" name="email" class="form-control input-lg" data-ng-model="loginData.userName">
                                             <span style="color:red" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
-                                                <span ng-show="loginForm.email.$error.required">E-mail is required.</span>
+                                                <span ng-show="loginForm.email.$error.required">Lütfen bir E-mail adresi giriniz.</span>
                                             </span>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                             <label>Password</label>
                                             <input type="password" name="password" class="form-control input-lg" data-ng-model="loginData.Password">
                                             <span style="color:red" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-                                                <span ng-show="loginForm.password.$error.required">Password is required.</span>
+                                                <span ng-show="loginForm.password.$error.required">Lütfen bir şifre giriniz.</span>
                                             </span>
                                         </div>
                                     </div>

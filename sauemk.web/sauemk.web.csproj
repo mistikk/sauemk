@@ -206,6 +206,9 @@
     <Content Include="Angular\Controllers\Shared.LoginPartial.Controller.js" />
     <Content Include="Angular\Services\authInterceptorService.js" />
     <Content Include="Angular\Services\authService.js" />
+    <Content Include="Content\img\emk-logo-footer.png" />
+    <Content Include="Content\img\emk-logo-png.png" />
+    <Content Include="Content\img\emk-logo-site.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\custom.css" />
@@ -285,7 +288,6 @@
     <Content Include="Content\img\logos\logo-3.png" />
     <Content Include="Content\img\logos\logo-4.png" />
     <Content Include="Content\img\logos\logo-5.png" />
-    <Content Include="Content\img\logos\logo-6.png" />
     <Content Include="Content\img\map-bottom-dark.png" />
     <Content Include="Content\img\map-bottom.png" />
     <Content Include="Content\img\map-top-dark.png" />
@@ -346,6 +348,7 @@
     <Content Include="Content\img\projects\project-home-3.jpg" />
     <Content Include="Content\img\projects\project-thumb.jpg" />
     <Content Include="Content\img\projects\project.jpg" />
+    <Content Include="Content\img\slides\arkaplan.jpg" />
     <Content Include="Content\img\slides\dark-cover.jpg" />
     <Content Include="Content\img\slides\light-cover.jpg" />
     <Content Include="Content\img\slides\mobile-device.png" />

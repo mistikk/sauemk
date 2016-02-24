@@ -62,7 +62,7 @@
             <div class="container">
                 <div class="logo">
                     <a href="#/home">
-                        <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="~/content/img/logo.png">
+                        <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="~/content/img/emk-logo-png.png">
                     </a>
                 </div>
                 @Html.Partial("_LoginPartial")
@@ -79,12 +79,12 @@
                     </ul>
                     <nav class="nav-main mega-menu">
                         <ul class="nav nav-pills nav-main" id="mainMenu">
-                            <li class="dropdown active">
+                            @*<li class="dropdown active">
                                 <a class="dropdown-toggle" href="index.html">
-                                    Home
-                                    <i class="fa fa-angle-down"></i>
+                                    ANA SAYFA
+                                    @*<i class="fa fa-angle-down"></i>*@
                                 </a>
-                                <ul class="dropdown-menu">
+                                @*<ul class="dropdown-menu">
                                     <li><a href="index.html">Home - Default</a></li>
                                     <li><a href="index-1.html">Home - Corporate <span class="tip">hot</span></a></li>
                                     <li><a href="index-2.html">Home - Color</a></li>
@@ -99,37 +99,28 @@
                                             <li><a href="index-slider-2.html">Nivo Slider</a></li>
                                         </ul>
                                     </li>
-                                </ul>
-                            </li>
-                            <li>
+                                </ul>*@
+                            @*</li>*@
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="#">
+                                    ANASAYFA
+
+                                </a>
+<li>
                                 <a ng-click="goEtkinlikPage();" href="javascript:void(0)">Etkinlik</a>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#">
-                                    About Us
-                                    <i class="fa fa-angle-down"></i>
+                                    HAKKIMIZDA
+                                    
                                 </a>
-                                <ul class="dropdown-menu">
+                                @*<ul class="dropdown-menu">
                                     <li><a href="about-us.html">About Us</a></li>
                                     <li><a href="about-us-basic.html">About Us - Basic</a></li>
                                     <li><a href="about-me.html">About Me</a></li>
-                                </ul>
+                                </ul>*@
                             </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="#">
-                                    Portfolio
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="portfolio-4-columns.html">4 Columns</a></li>
-                                    <li><a href="portfolio-3-columns.html">3 Columns</a></li>
-                                    <li><a href="portfolio-2-columns.html">2 Columns</a></li>
-                                    <li><a href="portfolio-lightbox.html">Portfolio Lightbox</a></li>
-                                    <li><a href="portfolio-timeline.html">Portfolio Timeline</a></li>
-                                    <li><a href="portfolio-full-width.html">Portfolio Full Width</a></li>
-                                    <li><a href="portfolio-single-project.html">Single Project</a></li>
-                                </ul>
-                            </li>
+                            
 
                         </ul>
                     </nav>
@@ -145,12 +136,21 @@
         </div>
 
         <footer id="footer">
-            <div class="container">
+            <div class="container"><div class="col-md-2">
+    <h4>Bizi Takip Edin !</h4>
+    <div class="social-icons">
+        <ul class="social-icons">
+            <li class="facebook"><a href="http://www.facebook.com/" target="_blank" data-placement="bottom" data-tooltip title="Facebook">Facebook</a></li>
+            <li class="twitter"><a href="http://www.twitter.com/" target="_blank" data-placement="bottom" data-tooltip title="Twitter">Twitter</a></li>
+            <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" data-placement="bottom" data-tooltip title="Linkedin">Linkedin</a></li>
+        </ul>
+    </div>
+</div>
                 <div class="row">
                     <div class="footer-ribbon">
-                        <span>Get in Touch</span>
+                        <span>Sakarya Üniversitesi Endüstri Mühendisliği Kulübü</span>
                     </div>
-                    <div class="col-md-3">
+                    @*<div class="col-md-3">
                         <div class="newsletter">
                             <h4>Newsletter</h4>
                             <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
@@ -186,17 +186,8 @@
                                 <li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <h4>Follow Us</h4>
-                        <div class="social-icons">
-                            <ul class="social-icons">
-                                <li class="facebook"><a href="http://www.facebook.com/" target="_blank" data-placement="bottom" data-tooltip title="Facebook">Facebook</a></li>
-                                <li class="twitter"><a href="http://www.twitter.com/" target="_blank" data-placement="bottom" data-tooltip title="Twitter">Twitter</a></li>
-                                <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" data-placement="bottom" data-tooltip title="Linkedin">Linkedin</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </div>*@
+                    
                 </div>
             </div>
             <div class="footer-copyright">
@@ -204,7 +195,7 @@
                     <div class="row">
                         <div class="col-md-1">
                             <a href="index.html" class="logo">
-                                <img alt="Porto Website Template" class="img-responsive" src="~/content/img/logo-footer.png">
+                                <img alt="Porto Website Template" class="img-responsive" src="~/content/img/emk-logo-footer.png">
                             </a>
                         </div>
                         <div class="col-md-7">
