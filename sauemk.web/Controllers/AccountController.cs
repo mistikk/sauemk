@@ -158,6 +158,7 @@ namespace sauemk.web.Controllers
             request.AddParameter("Name", model.Name);
             request.AddParameter("Surname", model.Surname);
             request.AddParameter("Password", model.Password);
+            request.AddParameter("Phone", model.Phone);
             request.AddParameter("ConfirmPassword", model.ConfirmPassword);
 
             var result = service.Execute<Object>(request);

@@ -62,6 +62,18 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="col-md-12">
+                                            <label>Phone Number</label>
+                                            <input type="number" name="phone" class="form-control input-lg" data-ng-model="regisData.phone" ng-minlength="10" ng-maxlength="10" required autofocus>
+                                            <span style="color:red" ng-show="regisForm.phone.$dirty && regisForm.phone.$invalid">
+                                                <span ng-show="regisForm.phone.$error.required || regisForm.phone.$error.number">Valid phone number is required</span>
+                                                <span ng-show="((regisForm.phone.$error.minlength || regisForm.phone.$error.maxlength) && regisForm.phone.$dirty)">phone number should be 10 digits</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
                                             <label>E-mail Address</label>
                                             <input type="email" name="email" class="form-control input-lg" data-ng-model="regisData.Email" required autofocus>
                                             <span style="color:red" ng-show="regisForm.email.$dirty && regisForm.email.$invalid">
