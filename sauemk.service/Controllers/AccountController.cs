@@ -346,6 +346,7 @@ namespace sauemk.Controllers
             kullanici = db.AspNetUsers.FirstOrDefault(x => x.Email == model.Email);
             kullanici.Name = model.Name;
             kullanici.Surname = model.Surname;
+            kullanici.PhoneNumber = model.Phone;
             db.Entry(kullanici).State = EntityState.Modified;
             try
             {

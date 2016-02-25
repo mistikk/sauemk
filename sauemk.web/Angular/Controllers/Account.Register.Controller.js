@@ -13,7 +13,8 @@
             Password: "",
             ConfirmPassword: "",
             Name: "",
-            Surname: ""
+            Surname: "",
+            phone: ""
         };
 
 
