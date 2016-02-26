@@ -202,6 +202,7 @@
     <Content Include="Angular\Controllers\Etkinlik.EtkinlikPage.Controller.js" />
     <Content Include="Angular\Controllers\Etkinlik.Index.Controller.js" />
     <Content Include="Angular\Controllers\Home.About.Controller.js" />
+    <Content Include="Angular\Controllers\Home.Index.Controller.js" />
     <Content Include="Angular\Controllers\Shared.Layout.Controller.js" />
     <Content Include="Angular\Controllers\Shared.LoginPartial.Controller.js" />
     <Content Include="Angular\Services\authInterceptorService.js" />
@@ -587,6 +588,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-dropzone.js" />
     <Content Include="Scripts\angular-local-storage.min.js" />
+    <Content Include="Scripts\angular-revolution.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
