@@ -9,15 +9,12 @@ namespace sauemk.web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery-1.10.2.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                        "~/Scripts/modernizr-2.6.2.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
@@ -39,9 +36,20 @@ namespace sauemk.web
                         "~/Scripts/angular-route.js",
                         "~/Scripts/angular-local-storage.min.js",
                         "~/Angular/app.js",
-                        "~/Angular/Services/*.js",
-                        "~/Angular/Directives/*.js",
-                        "~/Angular/Controllers/*.js"));
+                        "~/Angular/Services/authInterceptorService.js",
+                        "~/Angular/Services/authService.js",
+                        "~/Angular/Controllers/Account.Login.Controller.js",
+                        "~/Angular/Controllers/Account.Register.Controller.js",
+                        "~/Angular/Controllers/Admin.EtkinlikEkle.Controller.js",
+                        "~/Angular/Controllers/Admin.Index.Controller.js",
+                        "~/Angular/Controllers/Admin.Liste.Controller.js",
+                        "~/Angular/Controllers/Etkinlik.EtkinlikPage.Controller.js",
+                        "~/Angular/Controllers/Etkinlik.Index.Controller.js",
+                        "~/Angular/Controllers/Home.About.Controller.js",
+                        "~/Angular/Controllers/Home.Index.Controller.js",
+                        "~/Angular/Controllers/Shared.Layout.Controller.js",
+                        "~/Angular/Controllers/Shared.LoginPartial.Controller.js"));
+
         }
     }
 }
