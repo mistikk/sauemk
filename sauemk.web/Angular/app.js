@@ -42,6 +42,11 @@
             templateUrl: "Etkinlik/EtkinlikPage"
         });
 
+        $routeProvider.when("/kariyersampiyonlari", {
+            controller: "KariyerSampiyonlari",
+            templateUrl: "Etkinlik/KariyerSampiyonlari"
+        });
+
         $routeProvider.otherwise({ redirectTo: "/home" });
 
     });

@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "KariyerSampiyonlari";
+    Layout = null;
+}
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Etkinlik</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Karıyer Şampıyonları Kayıt</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="row featured-boxes login">
+                <div class="col-sm-3">
+                    &nbsp;
+                </div>
+                <div class="col-sm-6">
+                    <div class="featured-box featured-box-secundary default info-content">
+                        <div class="box-content">
+                            <h4>Kullanıcı Bilgileri</h4>
+
+                            <form name="regisForm" action="" id="" method="post" novalidate>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label>Name</label>
+                                            <input type="text" name="name" class="form-control input-lg" data-ng-model="regisData.Name" required autofocus>
+                                            <span style="color:red" ng-show="regisForm.name.$dirty && regisForm.name.$invalid">
+                                                <span ng-show="regisForm.name.$error.required">Name is required.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label>Surname</label>
+                                            <input type="text" name="surname" class="form-control input-lg" data-ng-model="regisData.Surname" required autofocus>
+                                            <span style="color:red" ng-show="regisForm.surname.$dirty && regisForm.surname.$invalid">
+                                                <span ng-show="regisForm.surname.$error.required">Surname is required.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label>Phone Number</label>
+                                            <input type="number" name="phone" class="form-control input-lg" data-ng-model="regisData.phone" ng-minlength="10" ng-maxlength="10" required autofocus>
+                                            <span style="color:red" ng-show="regisForm.phone.$dirty && regisForm.phone.$invalid">
+                                                <span ng-show="regisForm.phone.$error.required || regisForm.phone.$error.number">Valid phone number is required</span>
+                                                <span ng-show="((regisForm.phone.$error.minlength || regisForm.phone.$error.maxlength) && regisForm.phone.$dirty)">phone number should be 10 digits</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label>E-mail Address</label>
+                                            <input type="email" name="email" class="form-control input-lg" data-ng-model="regisData.Email" required autofocus>
+                                            <span style="color:red" ng-show="regisForm.email.$dirty && regisForm.email.$invalid">
+                                                <span ng-show="regisForm.email.$error.required">Email is required.</span>
+                                                <span ng-show="regisForm.email.$error.email">Invalid email address.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <a data-ng-click="register()"
+                                           value="Register"
+                                           class="btn btn-primary pull-right push-bottom"
+                                           data-loading-text="Loading..."
+                                           ng-disabled="regisForm.name.$dirty && regisForm.name.$invalid || regisData.Name == '' ||
+                                                        regisForm.surname.$dirty && regisForm.surname.$invalid || regisData.Surname == '' ||
+                                                        regisForm.email.$dirty && regisForm.email.$invalid || regisData.Email == '' ||
+                                                        regisForm.Password.$dirty && regisForm.Password.$invalid || regisData.Password == ''  ||
+                                                        regisData.Password != regisData.ConfirmPassword
+                                                        ">Ekle</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <i ng-show="loading" class="fa fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    &nbsp;
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

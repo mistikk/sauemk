@@ -83,6 +83,22 @@ namespace sauemk.Controllers
             return Ok(etkinlik);
         }
 
+        // GET: api/HaftaEtkinlik
+        [Route("api/KariyerSampiyonlariKayit")]
+        [HttpPost]
+        public async Task<IHttpActionResult> KariyerSampiyonlariKayit(KariyerSampiyonlari user)
+        {
+            EmkEntities database = new EmkEntities();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            database.KariyerSampiyonlari.Add(user);
+            await database.SaveChangesAsync();
+
+            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+        }
+
 
         // PUT: api/Etkinliks/5
         [ResponseType(typeof(void))]

@@ -712,6 +712,7 @@
     <Content Include="Views\Admin\Liste.cshtml" />
     <Content Include="Views\Admin\EtkinlikEkle.cshtml" />
     <Content Include="Views\Etkinlik\etkinlikPage.cshtml" />
+    <Content Include="Views\Etkinlik\KariyerSampiyonlari.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Angular\Directives\" />
