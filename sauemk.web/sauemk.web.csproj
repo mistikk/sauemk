@@ -187,6 +187,7 @@
     <Compile Include="Models\EtkinlikKayitModel.cs" />
     <Compile Include="Models\EtkinlikModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\KariyerSampiyonlariKayit.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TokenModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -203,6 +204,7 @@
     <Content Include="Angular\Controllers\Etkinlik.Index.Controller.js" />
     <Content Include="Angular\Controllers\Home.About.Controller.js" />
     <Content Include="Angular\Controllers\Home.Index.Controller.js" />
+    <Content Include="Angular\Controllers\KariyerSampiyonlari.js" />
     <Content Include="Angular\Controllers\Shared.Layout.Controller.js" />
     <Content Include="Angular\Controllers\Shared.LoginPartial.Controller.js" />
     <Content Include="Angular\Services\authInterceptorService.js" />

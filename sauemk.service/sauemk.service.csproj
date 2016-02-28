@@ -233,30 +233,49 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRoles.cs">
-      <DependentUpon>SauemkModel.tt</DependentUpon>
+      <DependentUpon>EmkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaims.cs">
-      <DependentUpon>SauemkModel.tt</DependentUpon>
+      <DependentUpon>EmkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserLogins.cs">
-      <DependentUpon>SauemkModel.tt</DependentUpon>
+      <DependentUpon>EmkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUsers.cs">
-      <DependentUpon>SauemkModel.tt</DependentUpon>
+      <DependentUpon>EmkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>SauemkModel.tt</DependentUpon>
+      <DependentUpon>EmkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\database_firewall_rules.cs">
       <DependentUpon>SauemkModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmkModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmkModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmkModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmkModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmkModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmkModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Etkinlik.cs">
-      <DependentUpon>SauemkModel.tt</DependentUpon>
+      <DependentUpon>EmkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EtkinlikUser.cs">
-      <DependentUpon>SauemkModel.tt</DependentUpon>
+      <DependentUpon>EmkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\KariyerSampiyonlari.cs">
+      <DependentUpon>EmkModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KariyerSampiyonlariModel.cs" />
     <Compile Include="Models\RoleAddModel.cs" />
     <Compile Include="Models\SauemkModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -286,6 +305,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\EmkModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmkModel.edmx</DependentUpon>
+      <LastGenOutput>EmkModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EmkModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmkModel.edmx</DependentUpon>
+      <LastGenOutput>EmkModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\SauemkModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SauemkModel.edmx</DependentUpon>
@@ -324,6 +353,13 @@
     </EntityDeploy>
     <Content Include="Models\SauemkModel.edmx.diagram">
       <DependentUpon>SauemkModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\EmkModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmkModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EmkModel.edmx.diagram">
+      <DependentUpon>EmkModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\emkapi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\emkapi - Web Deploy.pubxml" />
