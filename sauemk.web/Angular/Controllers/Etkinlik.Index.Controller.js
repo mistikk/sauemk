@@ -5,9 +5,9 @@
         .module('app')
         .controller('Etkinlik.Index.Controller', Etkinlik);
 
-    Etkinlik.$inject = ['$scope', '$http']; 
+    Etkinlik.$inject = ['$scope', '$http', '$location']; 
 
-    function Etkinlik($scope, $http) {
+    function Etkinlik($scope, $http, $location) {
         
         $scope.getEtkinlik = function () {
             $http.get("etkinlik/getetkinlik").then(function (response) {
@@ -19,5 +19,9 @@
                 console.log(response.data.gelecek);
             });
         }
+
+        $scope.goEtkinlik = function (id) {
+            $location.path('/etkinlik/' + id);
+        };
     }
 })();

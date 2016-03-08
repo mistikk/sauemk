@@ -69,7 +69,7 @@ namespace sauemk.Controllers
         [ResponseType(typeof(Etkinlik))]
         public IHttpActionResult GecmisEtkinlik()
         {
-            IQueryable<Etkinlik> etkinlik = db.Etkinlik.Where(x =>x.Tarihi < DateTime.Now).OrderBy(x => x.Tarihi).Take(4);
+            IQueryable<Etkinlik> etkinlik = db.Etkinlik.Where(x =>x.Tarihi < DateTime.Now).OrderByDescending(x => x.Tarihi).Take(4);
             if (etkinlik == null)
             {
                 return NotFound();
