@@ -23,7 +23,13 @@ namespace sauemk.web.Controllers
             return View();
         }
 
-        public ActionResult KariyerSampiyonlari()
+        [HttpGet]
+        public ActionResult HizliKayit()
+        {
+            return View();
+        }
+
+        public ActionResult CheckIn()
         {
             return View();
         }
@@ -94,6 +100,48 @@ namespace sauemk.web.Controllers
             request.AddParameter("CheckIn", false);
             request.AddParameter("CheckOut", false);
             request.AddParameter("CekilisKabul", false);
+            var token = Request.Headers["Authorization"];
+            var result = service.Execute<Object>(request, token);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult HizliKaydet(HizliKayitModel kayitData)
+        {
+            Response response = new Response();
+            if (!ModelState.IsValid)
+            {
+                return Json(response.ModelError());
+            }
+            
+            RestService service = new RestService();
+            var login = new RestRequest(Method.POST);
+            login.Resource = "api/Account/Register";
+            login.AddHeader("Content-Type", "application/json");
+            login.AddParameter("grant_type", "password");
+            login.AddParameter("Email", kayitData.Email);
+            login.AddParameter("Name", kayitData.Name);
+            login.AddParameter("Surname", kayitData.Surname);
+            login.AddParameter("Phone", kayitData.Phone);
+
+            var pass = System.Web.Security.Membership.GeneratePassword(6, 1);
+
+            login.AddParameter("Password", pass);
+            login.AddParameter("ConfirmPassword", pass);
+            
+            var loginresult = service.Execute<Object>(login);
+
+            if (loginresult.error == true)
+            {
+                return Json(response.ModelError());
+            }
+
+            var request = new RestRequest("api/EtkinlikUsers", Method.POST);
+            request.AddParameter("UserId", kayitData.Email);
+            request.AddParameter("EtkinlikId", kayitData.EtkinlikId);
+            request.AddParameter("CheckIn", true);
+            request.AddParameter("CheckOut", false);
+            request.AddParameter("CekilisKabul", true);
             var token = Request.Headers["Authorization"];
             var result = service.Execute<Object>(request, token);
             return Json(result, JsonRequestBehavior.AllowGet);

@@ -282,6 +282,7 @@
     <Compile Include="Models\HizliKayit.cs">
       <DependentUpon>EmkModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HizliKayitModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KariyerSampiyonlari.cs">
       <DependentUpon>EmkModel.tt</DependentUpon>

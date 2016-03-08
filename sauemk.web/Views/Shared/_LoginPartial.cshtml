@@ -4,20 +4,21 @@
 
 
 
-    
-        <form ng-if="authentication.isAuth">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="javascript:void(0)">
-                     <span>{{authentication.username}}</span></a>
-                </li>
-                <li><a href="javascript:void(0)" ng-click="logOff()">Çıkış Yap</a></li>
-            </ul>
-        </form>
 
-        <ul class="nav navbar-nav navbar-right" ng-if="authentication.isAuth == false">
-            <li><a href="javascript:void(0)" ng-click="register();" class="ng-pristine ng-untouched ng-valid">Kayıt Ol</a></li>
-            <li><a href="javascript:void(0)" ng-click="login();" class="ng-pristine ng-untouched ng-valid">Giriş Yap</a></li>
+    <form ng-if="authentication.isAuth">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="javascript:void(0)">
+                    <span>{{authentication.username}}</span>
+                </a>
+            </li>
+            <li><a href="javascript:void(0)" ng-click="logOff()">Çıkış Yap</a></li>
         </ul>
+    </form>
+
+    <ul class="nav navbar-nav navbar-right" ng-if="authentication.isAuth == false">
+        <li><a href="javascript:void(0)" ng-click="register();" class="ng-pristine ng-untouched ng-valid">Kayıt Ol</a></li>
+        <li><a href="javascript:void(0)" ng-click="login();" class="ng-pristine ng-untouched ng-valid">Giriş Yap</a></li>
+    </ul>
 
 </div>

@@ -37,9 +37,9 @@
             templateUrl: "Etkinlik/EtkinlikPage"
         });
 
-        $routeProvider.when("/kariyersampiyonlari", {
-            controller: "KariyerSampiyonlari",
-            templateUrl: "Etkinlik/KariyerSampiyonlari"
+        $routeProvider.when("/hizlikayit", {
+            controller: "Etkinlik.HizliKayit.Controller",
+            templateUrl: "Etkinlik/HizliKayit"
         });
 
         $routeProvider.when("/etkinlikekle", {

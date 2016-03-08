@@ -195,6 +195,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EtkinlikKayitModel.cs" />
     <Compile Include="Models\EtkinlikModel.cs" />
+    <Compile Include="Models\HizliKayitModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KariyerSampiyonlariKayit.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -213,7 +214,7 @@
     <Content Include="Angular\Controllers\Etkinlik.Index.Controller.js" />
     <Content Include="Angular\Controllers\Home.About.Controller.js" />
     <Content Include="Angular\Controllers\Home.Index.Controller.js" />
-    <Content Include="Angular\Controllers\KariyerSampiyonlari.js" />
+    <Content Include="Angular\Controllers\Etkinlik.HizliKayit.Controller.js" />
     <Content Include="Angular\Controllers\Shared.Layout.Controller.js" />
     <Content Include="Angular\Controllers\Shared.LoginPartial.Controller.js" />
     <Content Include="Angular\Services\authInterceptorService.js" />
@@ -734,8 +735,9 @@
     <Content Include="Views\Admin\Liste.cshtml" />
     <Content Include="Views\Admin\EtkinlikEkle.cshtml" />
     <Content Include="Views\Etkinlik\etkinlikPage.cshtml" />
-    <Content Include="Views\Etkinlik\KariyerSampiyonlari.cshtml" />
+    <Content Include="Views\Etkinlik\HizliKayit.cshtml" />
     <Content Include="Views\Etkinlik\Cekilis.cshtml" />
+    <Content Include="Views\Etkinlik\CheckIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Angular\Directives\" />

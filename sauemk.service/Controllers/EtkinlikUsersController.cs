@@ -104,6 +104,43 @@ namespace sauemk.Controllers
             return CreatedAtRoute("DefaultApi", new { id = etkinlikUser.Id }, etkinlikUser);
         }
 
+        // POST: api/EtkinlikUsers
+        [Route("api/hizlikayit")]
+        [HttpPost]
+        [ResponseType(typeof(EtkinlikUser))]
+        public async Task<IHttpActionResult> HizliKayit(EtkinlikUser etkinlikUser)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (!UserExists(etkinlikUser.UserId, etkinlikUser.EtkinlikId))
+            {
+                AspNetUsers user = new AspNetUsers();
+                user.Email = etkinlikUser.UserId;
+                db.EtkinlikUser.Add(etkinlikUser);
+
+                try
+                {
+                    await db.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                    if (EtkinlikUserExists(etkinlikUser.Id))
+                    {
+                        return Conflict();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+
+
+            return CreatedAtRoute("DefaultApi", new { id = etkinlikUser.Id }, etkinlikUser);
+        }
+
         // DELETE: api/EtkinlikUsers/5
         [ResponseType(typeof(EtkinlikUser))]
         public async Task<IHttpActionResult> DeleteEtkinlikUser(int id)
