@@ -23,7 +23,8 @@
             return config;
         }
         var _response = function (response) {
-
+            console.log("sa");
+            console.log(response);
             if (response.data.error == "BadRequest") {
                 response.status = 400;
                 response.statusText = "BadRequest";
@@ -35,7 +36,6 @@
                 return $q.reject(response);
             }
             if (response.data.error == "Unauthorized") {
-                sweetAlert("Hata..", "Lütfen giriş yapınız.", "error");
                 response.status = 401;
                 response.statusText = "Unauthorized";
                 var authService = $injector.get('authService');

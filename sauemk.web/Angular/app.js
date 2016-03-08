@@ -37,11 +37,6 @@
             templateUrl: "Admin/EtkinlikEkle"
         });
 
-        $routeProvider.when("/etkinlik/:id", {
-            controller: "Etkinlik.EtkinlikPage.Controller",
-            templateUrl: "Etkinlik/EtkinlikPage"
-        });
-
         $routeProvider.otherwise({ redirectTo: "/home" });
 
     });

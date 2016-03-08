@@ -26,7 +26,7 @@ namespace sauemk.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private sauemkEntities db = new sauemkEntities();
+        private EmkEntities db = new EmkEntities();
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 

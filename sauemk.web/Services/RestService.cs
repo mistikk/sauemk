@@ -13,7 +13,7 @@ namespace sauemk.web.Services
 {
     public class RestService : Controller
     {
-        RestClient client = new RestClient("http://localhost:4545/");
+        RestClient client = new RestClient("http://localhost:4040/");
 
         public Structure Get<T>(string res) where T : new()
         {

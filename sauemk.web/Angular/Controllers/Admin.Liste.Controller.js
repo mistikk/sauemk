@@ -5,13 +5,9 @@
         .module('app')
         .controller('Admin.Liste.Controller', Admin);
 
-    Admin.$inject = ['$scope', '$location', '$http']; 
+    Admin.$inject = ['$scope', '$location']; 
 
-    function Admin($scope, $location, $http) {
-
-        $scope.control = function () {
-            $http.get('admin/control');
-        }
+    function Admin($scope, $location) {
 
         $scope.etkinlikEkle = function () {
             $location.path('etkinlikekle');

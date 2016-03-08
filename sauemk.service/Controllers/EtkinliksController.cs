@@ -15,7 +15,7 @@ namespace sauemk.Controllers
 {
     public class EtkinliksController : ApiController
     {
-        private sauemkEntities db = new sauemkEntities();
+        private EmkEntities db = new EmkEntities();
 
         // GET: api/Etkinliks
         public IQueryable<Etkinlik> GetEtkinlik()
@@ -34,6 +34,33 @@ namespace sauemk.Controllers
             }
 
             return Ok(etkinlik);
+        }
+
+        // GET: api/GecmisEtkinlik
+        [Route("api/getkayit")]
+        [HttpGet]
+        [ResponseType(typeof(Etkinlik))]
+        public IHttpActionResult getkayit()
+        {
+            IQueryable<KariyerSampiyonlari> kayitlar = db.KariyerSampiyonlari;
+            if (kayitlar == null)
+            {
+                return NotFound();
+            }
+            foreach (var item in kayitlar)
+            {
+                HizliKayit kayit = new HizliKayit();
+                kayit.Name = item.Name;
+                kayit.Surname = item.Surname;
+                kayit.Phone = item.Phone;
+                kayit.Email = item.Email;
+                kayit.CekilisKabul = true;
+                db.HizliKayit.Add(kayit);
+                
+            }
+            var sa = db.SaveChanges();
+
+            return Ok(kayitlar);
         }
 
         // GET: api/GecmisEtkinlik
@@ -81,6 +108,27 @@ namespace sauemk.Controllers
             }
 
             return Ok(etkinlik);
+        }
+
+        // GET: api/HaftaEtkinlik
+        [Route("api/KariyerSampiyonlariKayit")]
+        [HttpPost]
+        public async Task<IHttpActionResult> KariyerSampiyonlariKayit(HizliKayit user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            HizliKayit result = db.HizliKayit.Add(user);
+            var sa = await db.SaveChangesAsync();
+            if (sa == 1)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
 

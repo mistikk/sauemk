@@ -13,10 +13,10 @@ namespace sauemk.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sauemkEntities : DbContext
+    public partial class EmkEntities : DbContext
     {
-        public sauemkEntities()
-            : base("name=sauemkEntities")
+        public EmkEntities()
+            : base("name=EmkEntities")
         {
         }
     
@@ -25,13 +25,14 @@ namespace sauemk.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<EtkinlikUser> EtkinlikUser { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Etkinlik> Etkinlik { get; set; }
+        public virtual DbSet<EtkinlikUser> EtkinlikUser { get; set; }
+        public virtual DbSet<HizliKayit> HizliKayit { get; set; }
+        public virtual DbSet<KariyerSampiyonlari> KariyerSampiyonlari { get; set; }
     }
 }

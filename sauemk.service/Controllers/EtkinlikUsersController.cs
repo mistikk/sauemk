@@ -15,7 +15,7 @@ namespace sauemk.Controllers
 {
     public class EtkinlikUsersController : ApiController
     {
-        private sauemkEntities db = new sauemkEntities();
+        private EmkEntities db = new EmkEntities();
 
         // GET: api/EtkinlikUsers
         public IQueryable<EtkinlikUser> GetEtkinlikUser()

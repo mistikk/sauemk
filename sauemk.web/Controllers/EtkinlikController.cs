@@ -23,6 +23,39 @@ namespace sauemk.web.Controllers
             return View();
         }
 
+        public ActionResult KariyerSampiyonlari()
+        {
+            return View();
+        }
+
+        public ActionResult Cekilis()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public JsonResult getCekilis()
+        {
+            RestService service = new RestService();
+            var request = new RestRequest("api/Cekilis", Method.GET);
+            var token = Request.Headers["Authorization"];
+            var result = service.Execute<Object>(request, token);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult KariyerSampiyonlariEkle(KariyerSampiyonlariKayit user)
+        {
+            RestService service = new RestService();
+            var request = new RestRequest("api/KariyerSampiyonlariKayit", Method.POST);
+            request.AddParameter("Email", user.Email);
+            request.AddParameter("Name", user.Name);
+            request.AddParameter("Surname", user.Surname);
+            request.AddParameter("Phone", user.Phone);
+            var token = Request.Headers["Authorization"];
+            var result = service.Execute<Object>(request, token);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult getEtkinlik()
         {
             RestService service = new RestService();

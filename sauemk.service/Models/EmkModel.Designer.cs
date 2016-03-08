@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\mistik\emk\sauemk.service\Models\SauemkModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Mustafa Buyukcelebi\Desktop\Mustafa\mistik\emk\sauemk.service\Models\EmkModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
