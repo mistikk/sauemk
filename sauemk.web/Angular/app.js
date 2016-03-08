@@ -36,7 +36,15 @@
             controller: "Admin.EtkinlikEkle.Controller",
             templateUrl: "Admin/EtkinlikEkle"
         });
+        $routeProvider.when("/etkinlik/:id", {
+            controller: "Etkinlik.EtkinlikPage.Controller",
+            templateUrl: "Etkinlik/EtkinlikPage"
+        });
 
+        $routeProvider.when("/kariyersampiyonlari", {
+            controller: "KariyerSampiyonlari",
+            templateUrl: "Etkinlik/KariyerSampiyonlari"
+        });
         $routeProvider.otherwise({ redirectTo: "/home" });
 
     });

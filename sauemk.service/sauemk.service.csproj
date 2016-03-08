@@ -257,8 +257,10 @@
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>EmkModel.tt</DependentUpon>
+
     </Compile>
     <Compile Include="Models\EmkModel.Context.cs">
+
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmkModel.Context.tt</DependentUpon>
@@ -301,6 +303,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\EmkModel.Context.tt">
+
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EmkModel.edmx</DependentUpon>
       <LastGenOutput>EmkModel.Context.cs</LastGenOutput>
