@@ -36,29 +36,47 @@ namespace sauemk.Controllers
             return Ok(etkinlikUser);
         }
 
-        // PUT: api/EtkinlikUsers/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutEtkinlikUser(int id, EtkinlikUser etkinlikUser)
+        // GET: api/SearchUser
+        [Route("api/SearchUser")]
+        [HttpPost]
+        [ResponseType(typeof(EtkinlikUser))]
+        public IHttpActionResult SearchUser(SearchUserModel usermodel)
+        {
+            List<AspNetUsers> user = db.AspNetUsers.Where(x => x.Name.Contains(usermodel.Name) && x.Surname.Contains(usermodel.Surname)).ToList();
+            List<AspNetUsers> resultuser = new List<AspNetUsers>();
+            foreach (var item in user)
+            {
+                EtkinlikUser etkinlikuser = db.EtkinlikUser.FirstOrDefault(x => x.UserId == item.Email && x.EtkinlikId == "6");
+                if (etkinlikuser != null)
+                {
+                    resultuser.Add(item);
+                }
+            }
+            
+            return Ok(resultuser);
+        }
+
+        // Post: api/PutEtkinlikUser
+        [Route("api/PutEtkinlikUser")]
+        [HttpPost]
+        public async Task<IHttpActionResult> PutEtkinlikUser(EtkinlikUser etkinlikUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            etkinlikUser.Id = 1;
+            EtkinlikUser user = db.EtkinlikUser.FirstOrDefault(x => x.UserId == etkinlikUser.UserId);
+            user.CheckIn = true;
 
-            if (id != etkinlikUser.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(etkinlikUser).State = EntityState.Modified;
-
+            db.Entry(user).State = EntityState.Modified;
             try
             {
-                await db.SaveChangesAsync();
+               var sa=  await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EtkinlikUserExists(id))
+                if (!EtkinlikUserExists(etkinlikUser.Id))
                 {
                     return NotFound();
                 }
@@ -104,7 +122,7 @@ namespace sauemk.Controllers
             return CreatedAtRoute("DefaultApi", new { id = etkinlikUser.Id }, etkinlikUser);
         }
 
-        // POST: api/EtkinlikUsers
+        // POST: api/hizlikayit
         [Route("api/hizlikayit")]
         [HttpPost]
         [ResponseType(typeof(EtkinlikUser))]

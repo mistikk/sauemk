@@ -42,10 +42,16 @@
             templateUrl: "Etkinlik/HizliKayit"
         });
 
+        $routeProvider.when("/checkin", {
+            controller: "Etkinlik.CheckIn.Controller",
+            templateUrl: "Etkinlik/CheckIn"
+        });
+
         $routeProvider.when("/etkinlikekle", {
             controller: "Admin.EtkinlikEkle.Controller",
             templateUrl: "Admin/EtkinlikEkle"
         });
+
 
         $routeProvider.otherwise({ redirectTo: "/home" });
 

@@ -104,6 +104,24 @@ namespace sauemk.web.Controllers
             var result = service.Execute<Object>(request, token);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+        public JsonResult EtkinlikCheckin(EtkinlikKayitModel kayitData)
+        {
+            Response response = new Response();
+            if (kayitData.userName == null)
+            {
+                return Json(response.AuthorizeError());
+            }
+            RestService service = new RestService();
+            var request = new RestRequest("api/PutEtkinlikUser", Method.POST);
+            request.AddParameter("UserId", kayitData.userName);
+            request.AddParameter("EtkinlikId", kayitData.etkinlikId);
+            request.AddParameter("CheckIn", kayitData.checkin);
+            request.AddParameter("CheckOut", false);
+            request.AddParameter("CekilisKabul", false);
+            var token = Request.Headers["Authorization"];
+            var result = service.Execute<Object>(request, token);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost]
         public JsonResult HizliKaydet(HizliKayitModel kayitData)
@@ -147,5 +165,15 @@ namespace sauemk.web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult SearchUser(SearchUserModel user)
+        {
+            RestService service = new RestService();
+            var request = new RestRequest("api/SearchUser", Method.POST);
+            request.AddParameter("Name", user.Name);
+            request.AddParameter("Surname", user.Surname);
+            var token = Request.Headers["Authorization"];
+            var result = service.Execute<Object>(request, token);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }

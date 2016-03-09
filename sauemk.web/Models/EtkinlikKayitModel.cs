@@ -9,5 +9,6 @@ namespace sauemk.web.Models
     {
         public string userName { get; set; }
         public string etkinlikId { get; set; }
+        public bool checkin { get; set; }
     }
 }

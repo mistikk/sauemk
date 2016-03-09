@@ -199,6 +199,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\KariyerSampiyonlariKayit.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SearchUserModel.cs" />
     <Compile Include="Models\TokenModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RestService.cs" />
@@ -210,6 +211,7 @@
     <Content Include="Angular\Controllers\Account.Register.Controller.js" />
     <Content Include="Angular\Controllers\Admin.Index.Controller.js" />
     <Content Include="Angular\Controllers\Admin.Liste.Controller.js" />
+    <Content Include="Angular\Controllers\Etkinlik.CheckIn.Controller.js" />
     <Content Include="Angular\Controllers\Etkinlik.EtkinlikPage.Controller.js" />
     <Content Include="Angular\Controllers\Etkinlik.Index.Controller.js" />
     <Content Include="Angular\Controllers\Home.About.Controller.js" />

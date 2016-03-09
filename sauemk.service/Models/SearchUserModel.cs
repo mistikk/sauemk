@@ -5,7 +5,9 @@ using System.Web;
 
 namespace sauemk.Models
 {
-    public class HizliKayitModel
+    public class SearchUserModel
     {
+        public string Name { get; set; }
+        public string Surname { get; set; }
     }
 }
